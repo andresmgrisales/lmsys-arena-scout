@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "last_updated": "2026-03-30T08:00:00Z",
+    "report_date_label": "30 de Marzo, 2026",
+    "source": "LMSYS Chatbot Arena",
+    "source_url": "https://lmarena.ai/?leaderboard"
+  },
+  "top_models": [
+    {
+      "rank": 1,
+      "name": "Claude Opus 4.6 Thinking",
+      "elo": 1505,
+      "ci": 6,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "up",
+      "trend_delta": 3
+    },
+    {
+      "rank": 2,
+      "name": "Gemini 3.1 Ultra",
+      "elo": 1504,
+      "ci": 6,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Google",
+      "trend": "up",
+      "trend_delta": 9
+    },
+    {
+      "rank": 3,
+      "name": "Claude Opus 4.6",
+      "elo": 1499,
+      "ci": 6,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "down",
+      "trend_delta": -2
+    },
+    {
+      "rank": 4,
+      "name": "Grok 4.20 Beta 1",
+      "elo": 1494,
+      "ci": 7,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "xAI",
+      "trend": "neutral",
+      "trend_delta": 0
+    },
+    {
+      "rank": 5,
+      "name": "Llama-4 400B Instruct",
+      "elo": 1489,
+      "ci": 7,
+      "license_type": "open",
+      "license_label": "Abierto (Llama License)",
+      "organization": "Meta",
+      "trend": "up",
+      "trend_delta": 14
+    }
+  ],
+  "history": {
+    "labels": ["Sem -4", "Sem -3", "Sem -2", "Sem -1", "Actual"],
+    "series": [
+      {
+        "name": "Claude Opus 4.6 Thinking",
+        "color": "#6366f1",
+        "data": [1488, 1490, 1495, 1502, 1505]
+      },
+      {
+        "name": "Gemini 3.1 Ultra",
+        "color": "#0ea5e9",
+        "data": [1478, 1485, 1490, 1495, 1504]
+      },
+      {
+        "name": "Llama-4 400B Instruct",
+        "color": "#10b981",
+        "data": [1445, 1450, 1460, 1475, 1489]
+      }
+    ]
+  },
+  "insights": {
+    "seismic_movements": [
+      {
+        "title": "Colisión en la Cúspide: Claude vs Gemini Ultra",
+        "content": "El lanzamiento de <strong>Gemini 3.1 Ultra</strong> ha inyectado volatilidad en la cima. Con 1504 puntos Elo, ha cerrado la brecha frente a Claude Opus 4.6 Thinking (1505). Evaluando la matriz de Bradley-Terry y el intervalo de confianza (±6), confirmamos que estadísticamente son indistinguibles. La preferencia humana oscila marginalmente dependiendo de la longitud del contexto.",
+        "accent_color": "indigo"
+      },
+      {
+        "title": "Exclusión Histórica de OpenAI",
+        "content": "Por primera vez desde la concepción del Arena, OpenAI no tiene un modelo en el Top 5. <strong>GPT-5.4 High</strong> fue desplazado al 6to lugar (1486 Elo) tras la fuerte entrada de Llama-4 400B. La fricción se nota especialmente en su tasa de rechazo por <em>Safety Guardrails</em>, la cual los usuarios penalizan severamente.",
+        "accent_color": "emerald"
+      }
+    ],
+    "open_source_leader": {
+      "name": "Llama-4 400B Instruct",
+      "organization": "Meta",
+      "license": "Llama License",
+      "elo": 1489,
+      "gap_to_frontier": 16,
+      "gap_percentage": 97,
+      "description": "Desplazamiento radical: Meta recupera la corona abierta frente a los modelos chinos (Qwen/GLM). Llama-4 entra directamente al Top 5 global, demostrando que la destilación de arquitecturas masivas a pesos descargables está acortando el ciclo de <em>catch-up</em> exponencialmente.",
+      "gap_note": "La distancia se desplomó de 50 a 16 puntos. El rendimiento empírico de Llama-4 (1489) se superpone con el límite inferior del intervalo de confianza de Gemini 3.1 Pro Preview (1494)."
+    },
+    "expert_analysis": {
+      "coding": {
+        "title": "Categoría: Coding (1520+ Elo)",
+        "content": "Aunque Claude Opus 4.6 Thinking retiene el liderazgo indiscutible en arquitecturas multi-agente, <strong>Llama-4 400B</strong> está canibalizando la cuota de preferencia en tareas de <em>scripting</em> estándar (Python/React). La comunidad matemática e ingenieril aprecia su latencia reducida y su negativa nula a refactorizar código sin sermones morales."
+      },
+      "hard_prompts": {
+        "title": "Categoría: Hard Prompts",
+        "content": "En la resolución de teoremas y deducción lógica multi-salto, <strong>Gemini 3.1 Ultra</strong> ha marcado un hito. La vectorización de su contexto nativo multimodal (capaz de digerir <em>papers</em> enteros en PDF sin perder recuperación de hechos) le otorga una ventaja competitiva en esta categoría que sobrepasa el error estocástico del <em>crowdsourcing</em>."
+      }
+    }
+  }
+}

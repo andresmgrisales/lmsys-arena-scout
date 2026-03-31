@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMSYS Arena Scout — Tablero de Inteligencia IA</title>
+    <meta name="description" content="Monitor semanal del estado del arte en Inteligencia Artificial basado en LMSYS Chatbot Arena. Ranking Elo actualizado automáticamente.">
+    <meta name="author" content="Andrés Mauricio Grisales A.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                        'pulse-dot': 'pulseDot 2s ease-in-out infinite',
+                        'count-up': 'countUp 1.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        pulseDot: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.4' } },
+                    }
+                },
+            },
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Loading skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Stagger animation delays */
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-6 { animation-delay: 0.6s; opacity: 0; }
+        .stagger-7 { animation-delay: 0.7s; opacity: 0; }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Card hover */
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -5px rgba(0,0,0,0.1), 0 4px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        /* Table row hover */
+        .table-row-hover {
+            transition: background-color 0.15s ease;
+        }
+        .table-row-hover:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Rank badges */
+        .rank-gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #78350f; }
+        .rank-silver { background: linear-gradient(135deg, #d1d5db, #9ca3af); color: #374151; }
+        .rank-bronze { background: linear-gradient(135deg, #fdba74, #f97316); color: #7c2d12; }
+
+        /* Print styles */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; }
+            .card-hover:hover { transform: none; box-shadow: none; }
+        }
+
+        /* Hero gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #312e81 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-slate-800 antialiased">
+
+    <!-- Loading State -->
+    <div id="loading-state" class="min-h-screen flex items-center justify-center bg-slate-50">
+        <div class="text-center">
+            <div class="inline-flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 border-3 border-indigo-200 border-t-indigo-600 rounded-full animate-spin" style="border-width:3px"></div>
+                <span class="text-lg font-semibold text-slate-600">Cargando datos del Arena...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App (hidden until data loads) -->
+    <div id="app" class="hidden">
+
+        <!-- Hero Header -->
+        <header class="hero-gradient text-white px-6 py-8 md:py-10 animate-fade-in">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="bg-indigo-500/20 p-2.5 rounded-xl border border-indigo-400/20">
+                                <i data-lucide="terminal" class="w-7 h-7 text-indigo-300"></i>
+                            </div>
+                            <h1 class="text-3xl md:text-4xl font-black tracking-tight">
+                                LMSYS ARENA <span class="gradient-text" style="-webkit-text-fill-color:transparent;background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;background-clip:text;">SCOUT</span>
+                            </h1>
+                        </div>
+                        <p class="text-indigo-200/80 text-sm font-mono ml-14">
+                            Filtrando el ruido de la carrera IA · Corte: <span id="header-date" class="text-indigo-100 font-semibold"></span>
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 ml-14 md:ml-0">
+                        <button id="btn-download"
+                            class="no-print inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-lg font-semibold text-sm text-white hover:bg-white/20 transition-all focus:ring-2 focus:ring-indigo-400 focus:outline-none cursor-pointer"
+                            title="Descargar datos en formato CSV">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Exportar CSV
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+
+            <!-- Info Banner -->
+            <div class="animate-slide-up stagger-1 bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-100 rounded-xl p-5 flex gap-4 items-start shadow-sm">
+                <div class="bg-indigo-100 p-2.5 rounded-xl flex-shrink-0">
+                    <i data-lucide="info" class="w-5 h-5 text-indigo-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-indigo-900 font-bold mb-2 text-sm">Sobre este Reporte</h3>
+                    <p class="text-sm text-indigo-800/70 leading-relaxed mb-3">
+                        Este panel resume el estado del arte de la Inteligencia Artificial utilizando datos del <strong class="text-indigo-900">LMSYS Chatbot Arena</strong>, una plataforma creada por la <strong class="text-indigo-900">Large Model Systems Organization</strong> (UC Berkeley, UCSD, CMU). A diferencia de los benchmarks tradicionales (MMLU, HumanEval, etc.) — donde los modelos se sobreajustan al memorizar las respuestas de los exámenes —, el Arena utiliza un sistema de <strong class="text-indigo-900">pruebas A/B a ciegas con jueces humanos reales</strong>.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-indigo-800/70 mb-3">
+                        <div class="bg-white/60 rounded-lg p-3 border border-indigo-100/60">
+                            <span class="font-bold text-indigo-900 block mb-1">1. Prompt Libre</span>
+                            Un usuario introduce cualquier pregunta, código o problema. Dos modelos anónimos generan respuestas en paralelo, sin que el usuario sepa cuáles son.
+                        </div>
+                        <div class="bg-white/60 rounded-lg p-3 border border-indigo-100/60">
+                            <span class="font-bold text-indigo-900 block mb-1">2. Voto Humano a Ciegas</span>
+                            El usuario lee ambas respuestas y vota cuál es mejor (A, B, empate o ambos fallaron). Solo después del voto se revela la identidad de los modelos.
+                        </div>
+                        <div class="bg-white/60 rounded-lg p-3 border border-indigo-100/60">
+                            <span class="font-bold text-indigo-900 block mb-1">3. Puntuación Elo</span>
+                            Con miles de batallas, se calcula un ranking usando el modelo de <em>Bradley-Terry</em> (como en ajedrez). Si un modelo "underdog" vence al líder, gana muchos puntos; si pierde contra uno inferior, pierde muchos. Esto autocorrige el marketing corporativo.
+                        </div>
+                    </div>
+                    <p class="text-xs text-indigo-600/60 leading-relaxed">
+                        El intervalo de confianza (±6 a ±8) se calcula mediante <em>bootstrapping</em> estadístico para reflejar la variabilidad humana. Si dos modelos están separados por menos puntos que su margen de error, son estadísticamente indistinguibles (empate técnico).
+                    </p>
+                </div>
+            </div>
+
+            <!-- KPI Summary Cards -->
+            <div class="animate-slide-up stagger-2 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="bg-amber-100 p-1.5 rounded-lg"><i data-lucide="crown" class="w-4 h-4 text-amber-600"></i></div>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Líder</span>
+                    </div>
+                    <p id="kpi-leader" class="text-lg font-extrabold text-slate-800 leading-tight"></p>
+                    <p id="kpi-leader-elo" class="text-sm font-mono text-indigo-600 font-bold mt-0.5"></p>
+                </div>
+                <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="bg-emerald-100 p-1.5 rounded-lg"><i data-lucide="unlock" class="w-4 h-4 text-emerald-600"></i></div>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Open Source</span>
+                    </div>
+                    <p id="kpi-open" class="text-lg font-extrabold text-slate-800 leading-tight"></p>
+                    <p id="kpi-open-elo" class="text-sm font-mono text-emerald-600 font-bold mt-0.5"></p>
+                </div>
+                <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="bg-violet-100 p-1.5 rounded-lg"><i data-lucide="trending-up" class="w-4 h-4 text-violet-600"></i></div>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Mayor Subida</span>
+                    </div>
+                    <p id="kpi-mover" class="text-lg font-extrabold text-slate-800 leading-tight"></p>
+                    <p id="kpi-mover-delta" class="text-sm font-mono text-violet-600 font-bold mt-0.5"></p>
+                </div>
+                <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="bg-sky-100 p-1.5 rounded-lg"><i data-lucide="layers" class="w-4 h-4 text-sky-600"></i></div>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Brecha OS</span>
+                    </div>
+                    <p id="kpi-gap" class="text-lg font-extrabold text-slate-800 leading-tight"></p>
+                    <p class="text-xs text-slate-500 mt-0.5">Cerrada vs Abierta</p>
+                </div>
+            </div>
+
+            <!-- Top 5 Table -->
+            <div class="animate-slide-up stagger-3 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden card-hover">
+                <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
+                    <div class="bg-amber-100 p-1.5 rounded-lg"><i data-lucide="trophy" class="w-5 h-5 text-amber-600"></i></div>
+                    <h3 class="text-lg font-bold text-slate-800 tracking-wide">El Top 5 Actual <span class="text-sm font-normal text-slate-400">(Overall)</span></h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="text-xs uppercase bg-slate-50 text-slate-500 tracking-wider">
+                                <th class="px-6 py-3.5 font-semibold">Rank</th>
+                                <th class="px-6 py-3.5 font-semibold">Modelo</th>
+                                <th class="px-6 py-3.5 font-semibold">Organización</th>
+                                <th class="px-6 py-3.5 font-semibold">Elo Score</th>
+                                <th class="px-6 py-3.5 font-semibold">CI 95%</th>
+                                <th class="px-6 py-3.5 font-semibold">Licencia</th>
+                                <th class="px-6 py-3.5 font-semibold">Tendencia</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top5-table-body">
+                            <!-- Filled dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Chart: 30-day evolution -->
+            <div class="animate-slide-up stagger-4 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
+                <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
+                    <div class="bg-indigo-100 p-1.5 rounded-lg"><i data-lucide="bar-chart-3" class="w-5 h-5 text-indigo-600"></i></div>
+                    <h3 class="text-lg font-bold text-slate-800">Evolución Semanal <span class="text-sm font-normal text-slate-400">(Top 3 Modelos Disruptivos)</span></h3>
+                </div>
+                <div class="p-6">
+                    <div class="relative" style="height: 320px;">
+                        <canvas id="elo-chart"></canvas>
+                    </div>
+                    <div id="chart-legend" class="mt-4 flex flex-wrap gap-4 justify-center text-xs"></div>
+                </div>
+            </div>
+
+            <!-- Two columns: Seismic + Open Source -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                <!-- Seismic Movements -->
+                <div class="animate-slide-up stagger-5 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
+                    <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
+                        <div class="bg-rose-100 p-1.5 rounded-lg"><i data-lucide="activity" class="w-5 h-5 text-rose-600"></i></div>
+                        <h3 class="text-lg font-bold text-slate-800">Movimientos Sísmicos</h3>
+                    </div>
+                    <div id="seismic-container" class="p-6 space-y-4">
+                        <!-- Filled dynamically -->
+                    </div>
+                </div>
+
+                <!-- Open Source Leader -->
+                <div class="animate-slide-up stagger-5 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
+                    <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-emerald-50 to-white">
+                        <div class="bg-emerald-100 p-1.5 rounded-lg"><i data-lucide="unlock" class="w-5 h-5 text-emerald-600"></i></div>
+                        <h3 class="text-lg font-bold text-slate-800">Líder Open Source</h3>
+                    </div>
+                    <div id="opensource-container" class="p-6">
+                        <!-- Filled dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert Analysis -->
+            <div class="animate-slide-up stagger-6 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
+                <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-violet-50 to-white">
+                    <div class="bg-violet-100 p-1.5 rounded-lg"><i data-lucide="brain-circuit" class="w-5 h-5 text-violet-600"></i></div>
+                    <h3 class="text-lg font-bold text-slate-800">Análisis del Experto <span class="text-sm font-normal text-slate-400">(Categorías Complejas)</span></h3>
+                </div>
+                <div id="expert-container" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Filled dynamically -->
+                </div>
+            </div>
+
+            <!-- Sources -->
+            <div class="animate-slide-up stagger-7">
+                <div class="flex items-center gap-2 mb-3">
+                    <i data-lucide="bookmark" class="w-4 h-4 text-slate-400"></i>
+                    <h4 class="text-sm font-bold text-slate-600 uppercase tracking-wider">Fuentes y Metodología</h4>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm flex flex-col md:flex-row gap-6">
+                    <div class="flex-1">
+                        <a href="https://lmarena.ai/?leaderboard" target="_blank" rel="noopener noreferrer"
+                            class="text-indigo-600 font-semibold hover:text-indigo-800 inline-flex items-center gap-1 mb-1 text-sm">
+                            LMSYS Chatbot Arena Leaderboard <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Datos extraídos de la plataforma oficial Large Model Systems Organization (UC Berkeley, UCSD, CMU). Las puntuaciones Elo se basan en el modelo Bradley-Terry para estimar la probabilidad de victoria en batallas pareadas.
+                        </p>
+                    </div>
+                    <div class="flex-1">
+                        <h5 class="text-slate-700 font-semibold mb-1 text-sm">Categorías de Evaluación</h5>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            El análisis se focalizó en los subsets de <em>Overall</em> (General), <em>Coding</em> (Programación) y <em>Hard Prompts</em> (Razonamiento Complejo), filtrando modelos con menos de 10,000 votos para garantizar significancia estadística.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="border-t border-slate-200 pt-6 pb-8">
+                <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-indigo-50 p-3 rounded-full border border-indigo-100">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-slate-900 font-extrabold text-lg tracking-wide">Andrés Mauricio Grisales A.</h3>
+                            <p class="text-indigo-600 text-sm font-mono mt-0.5 font-semibold">PhD Ciencias Matemáticas con énfasis en NLP</p>
+                        </div>
+                    </div>
+                    <a href="mailto:andresmgrisales@gmail.com"
+                        class="no-print inline-flex items-center gap-2 text-slate-600 text-sm font-mono bg-slate-50 px-4 py-2 rounded-full border border-slate-200 hover:text-indigo-700 hover:border-indigo-300 transition-colors shadow-sm">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span class="font-semibold">andresmgrisales@gmail.com</span>
+                    </a>
+                </div>
+                <p class="text-center text-xs text-slate-400 mt-4 font-mono">
+                    Última actualización: <span id="footer-date"></span> · Datos: LMSYS Chatbot Arena · Nueva actualización cada lunes a las 8:00 AM UTC
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+    (async function() {
+        // ── DATA LOADING ────────────────────────────────────────────
+        let DATA;
+        try {
+            const resp = await fetch('data/latest.json');
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+            DATA = await resp.json();
+        } catch (e) {
+            console.error('Error cargando datos:', e);
+            document.getElementById('loading-state').innerHTML = `
+                <div class="text-center p-8">
+                    <div class="bg-rose-50 border border-rose-200 rounded-xl p-6 inline-block">
+                        <p class="text-rose-700 font-semibold mb-1">Error al cargar datos</p>
+                        <p class="text-rose-500 text-sm">No se pudo cargar data/latest.json — ${e.message}</p>
+                    </div>
+                </div>`;
+            return;
+        }
+
+        // Hide loading, show app
+        document.getElementById('loading-state').classList.add('hidden');
+        document.getElementById('app').classList.remove('hidden');
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        const { metadata, top_models, history, insights } = DATA;
+
+        // ── HEADER DATE ─────────────────────────────────────────────
+        document.getElementById('header-date').textContent = metadata.report_date_label;
+        document.getElementById('footer-date').textContent = metadata.report_date_label;
+
+        // ── KPI CARDS ───────────────────────────────────────────────
+        const leader = top_models[0];
+        document.getElementById('kpi-leader').textContent = leader.name;
+        document.getElementById('kpi-leader-elo').textContent = leader.elo + ' Elo';
+
+        const openModel = top_models.find(m => m.license_type === 'open') || top_models[top_models.length - 1];
+        document.getElementById('kpi-open').textContent = openModel.name;
+        document.getElementById('kpi-open-elo').textContent = openModel.elo + ' Elo';
+
+        const biggestMover = [...top_models].sort((a, b) => Math.abs(b.trend_delta) - Math.abs(a.trend_delta))[0];
+        document.getElementById('kpi-mover').textContent = biggestMover.name;
+        document.getElementById('kpi-mover-delta').textContent = (biggestMover.trend_delta > 0 ? '+' : '') + biggestMover.trend_delta + ' pts';
+
+        const gap = leader.elo - openModel.elo;
+        document.getElementById('kpi-gap').textContent = gap + ' puntos Elo';
+
+        // ── TOP 5 TABLE ─────────────────────────────────────────────
+        const tbody = document.getElementById('top5-table-body');
+        const trendIcons = { up: 'arrow-up-right', down: 'arrow-down-right', neutral: 'minus' };
+        const trendColors = { up: 'text-emerald-600', down: 'text-rose-600', neutral: 'text-slate-400' };
+        const trendBg = { up: 'bg-emerald-50', down: 'bg-rose-50', neutral: 'bg-slate-50' };
+        const rankClasses = ['rank-gold', 'rank-silver', 'rank-bronze', '', ''];
+
+        top_models.forEach((m, i) => {
+            const tr = document.createElement('tr');
+            tr.className = 'border-b border-slate-100 table-row-hover';
+            const rankBadgeClass = i < 3 ? rankClasses[i] : 'bg-slate-100 text-slate-600';
+            const licenseClass = m.license_type === 'open'
+                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                : 'bg-slate-50 text-slate-600 border-slate-200';
+            const deltaText = m.trend_delta > 0 ? '+' + m.trend_delta : (m.trend_delta < 0 ? m.trend_delta : '0');
+            const deltaColor = m.trend_delta > 0 ? 'text-emerald-600' : (m.trend_delta < 0 ? 'text-rose-600' : 'text-slate-400');
+
+            tr.innerHTML = `
+                <td class="px-6 py-4">
+                    <span class="${rankBadgeClass} inline-flex items-center justify-center w-8 h-8 rounded-lg font-bold text-sm shadow-sm">#${m.rank}</span>
+                </td>
+                <td class="px-6 py-4 font-bold text-slate-800">${sanitize(m.name)}</td>
+                <td class="px-6 py-4 text-slate-600 font-medium">${sanitize(m.organization)}</td>
+                <td class="px-6 py-4">
+                    <span class="text-xl font-extrabold font-mono text-slate-800">${m.elo}</span>
+                </td>
+                <td class="px-6 py-4 font-mono text-slate-500 text-xs">±${m.ci}</td>
+                <td class="px-6 py-4">
+                    <span class="${licenseClass} px-2.5 py-1 text-[10px] uppercase tracking-wider rounded-full font-bold border">${sanitize(m.license_label)}</span>
+                </td>
+                <td class="px-6 py-4">
+                    <span class="${trendBg[m.trend]} ${trendColors[m.trend]} inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold font-mono">
+                        <i data-lucide="${trendIcons[m.trend]}" class="w-3.5 h-3.5"></i>
+                        ${deltaText}
+                    </span>
+                </td>`;
+            tbody.appendChild(tr);
+        });
+
+        // Re-init icons for dynamically added content
+        lucide.createIcons();
+
+        // ── CHART ───────────────────────────────────────────────────
+        const ctx = document.getElementById('elo-chart').getContext('2d');
+        const allValues = history.series.flatMap(s => s.data);
+        const minElo = Math.min(...allValues) - 10;
+        const maxElo = Math.max(...allValues) + 10;
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: history.labels,
+                datasets: history.series.map(s => ({
+                    label: s.name,
+                    data: s.data,
+                    borderColor: s.color,
+                    backgroundColor: s.color + '18',
+                    borderWidth: 3,
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: s.color,
+                    pointBorderWidth: 2.5,
+                    tension: 0.3,
+                    fill: true,
+                }))
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1e293b',
+                        titleFont: { family: 'Inter', size: 13, weight: '600' },
+                        bodyFont: { family: 'JetBrains Mono', size: 12 },
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(ctx) {
+                                return ` ${ctx.dataset.label}: ${ctx.parsed.y} Elo`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        min: minElo,
+                        max: maxElo,
+                        grid: { color: '#f1f5f9', drawBorder: false },
+                        ticks: {
+                            font: { family: 'JetBrains Mono', size: 11 },
+                            color: '#94a3b8',
+                            padding: 8,
+                        },
+                        border: { display: false },
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { family: 'Inter', size: 12, weight: '600' },
+                            color: '#64748b',
+                            padding: 8,
+                        },
+                        border: { display: false },
+                    }
+                }
+            }
+        });
+
+        // Custom chart legend
+        const legendContainer = document.getElementById('chart-legend');
+        history.series.forEach(s => {
+            const delta = s.data[s.data.length - 1] - s.data[0];
+            const div = document.createElement('div');
+            div.className = 'flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5';
+            div.innerHTML = `
+                <span class="w-3 h-3 rounded-full flex-shrink-0 shadow-sm" style="background:${s.color}"></span>
+                <span class="font-semibold text-slate-700">${sanitize(s.name)}</span>
+                <span class="font-mono text-slate-500 ml-1">Δ${delta > 0 ? '+' : ''}${delta}</span>`;
+            legendContainer.appendChild(div);
+        });
+
+        // ── SEISMIC MOVEMENTS ───────────────────────────────────────
+        const seismicEl = document.getElementById('seismic-container');
+        const accentClasses = {
+            indigo: 'border-l-indigo-500',
+            emerald: 'border-l-emerald-500',
+            rose: 'border-l-rose-500',
+            amber: 'border-l-amber-500',
+        };
+        insights.seismic_movements.forEach(item => {
+            const div = document.createElement('div');
+            div.className = `bg-slate-50 p-4 rounded-lg border border-slate-200 border-l-4 ${accentClasses[item.accent_color] || 'border-l-indigo-500'} shadow-sm`;
+            div.innerHTML = `
+                <h4 class="text-sm font-bold text-slate-800 mb-1.5">${sanitize(item.title)}</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">${item.content}</p>`;
+            seismicEl.appendChild(div);
+        });
+
+        // ── OPEN SOURCE LEADER ──────────────────────────────────────
+        const os = insights.open_source_leader;
+        document.getElementById('opensource-container').innerHTML = `
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h4 class="text-xl font-extrabold text-emerald-700">${sanitize(os.name)}</h4>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest mt-1 font-semibold">${sanitize(os.organization)} · ${sanitize(os.license)}</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-3xl font-mono font-black text-slate-800 block">${os.elo}</span>
+                    <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Elo Score</span>
+                </div>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-5">${os.description}</p>
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-slate-600 font-semibold text-xs">Brecha con la Frontera (Propietario):</span>
+                    <span class="font-mono text-emerald-600 font-bold text-sm">-${os.gap_to_frontier} Puntos Elo</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-emerald-400 to-emerald-600 h-2.5 rounded-full transition-all duration-1000" style="width:${os.gap_percentage}%"></div>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-2 text-center leading-snug">${os.gap_note}</p>
+            </div>`;
+
+        // ── EXPERT ANALYSIS ─────────────────────────────────────────
+        const expertEl = document.getElementById('expert-container');
+        const expertIcons = { coding: 'code-2', hard_prompts: 'lightbulb' };
+        const expertColors = { coding: 'text-indigo-600', hard_prompts: 'text-amber-600' };
+        const expertBg = { coding: 'bg-indigo-100', hard_prompts: 'bg-amber-100' };
+
+        Object.entries(insights.expert_analysis).forEach(([key, item]) => {
+            const div = document.createElement('div');
+            div.className = 'bg-gradient-to-br from-slate-50 to-white p-5 rounded-xl border border-slate-200';
+            div.innerHTML = `
+                <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                    <span class="${expertBg[key] || 'bg-slate-100'} p-1 rounded-lg"><i data-lucide="${expertIcons[key] || 'zap'}" class="w-4 h-4 ${expertColors[key] || 'text-slate-600'}"></i></span>
+                    ${sanitize(item.title)}
+                </h4>
+                <p class="text-sm text-slate-600 leading-relaxed">${item.content}</p>`;
+            expertEl.appendChild(div);
+        });
+
+        // Final icon pass
+        lucide.createIcons();
+
+        // ── CSV EXPORT ──────────────────────────────────────────────
+        document.getElementById('btn-download').addEventListener('click', () => {
+            const headers = ['Rank,Modelo,Organización,Elo,CI,Licencia,Tendencia'];
+            const rows = top_models.map(m =>
+                `${m.rank},"${m.name}","${m.organization}",${m.elo},±${m.ci},"${m.license_label}",${m.trend_delta}`
+            );
+            const csvContent = '\uFEFF' + headers.concat(rows).join('\n'); // BOM for Excel UTF-8
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            const dateStr = metadata.last_updated.split('T')[0];
+            a.download = `arena_elo_data_${dateStr}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // ── HELPER: Sanitize text to prevent XSS ───────────────────
+        function sanitize(str) {
+            const el = document.createElement('span');
+            el.textContent = str;
+            return el.innerHTML;
+        }
+
+    })();
+    </script>
+</body>
+</html>
