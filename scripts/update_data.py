@@ -23,6 +23,16 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "requests"])
     import requests
 
+import pickle
+
+try:
+    import pandas as pd
+except ImportError:
+    print("Installing pandas...")
+    import subprocess
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
+    import pandas as pd
+
 
 # ── Configuration ────────────────────────────────────────────────────────────
 
@@ -31,17 +41,10 @@ DATA_DIR = SCRIPT_DIR.parent / "data"
 OUTPUT_FILE = DATA_DIR / "latest.json"
 HISTORY_FILE = DATA_DIR / "history.json"
 
-# LMSYS Chatbot Arena API endpoint (HuggingFace Spaces Gradio API)
-ARENA_API_URL = (
-    "https://lmarena-ai-chatbot-arena-leaderboard.hf.space/api/predict"
-)
-# Alternative: direct CSV from their datasets repo
-ARENA_CSV_URL = (
-    "https://huggingface.co/datasets/lmsys/chatbot_arena_leaderboard/resolve/main/leaderboard_table.csv"
-)
-# Fallback: raw JSON endpoint
-ARENA_JSON_URL = (
-    "https://storage.googleapis.com/arena_external_data/public/clean_battle_latest.json"
+# HuggingFace Space API to list files and find latest elo pickle
+HF_SPACE_API_URL = "https://huggingface.co/api/spaces/lmarena-ai/arena-leaderboard"
+HF_SPACE_FILE_URL = (
+    "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard/resolve/main/{filename}"
 )
 
 TOP_N = 5  # Number of top models to show
@@ -65,39 +68,65 @@ def format_date_es(dt):
 
 def fetch_leaderboard_data():
     """
-    Try multiple approaches to fetch the latest LMSYS leaderboard data.
+    Fetch the latest LMSYS leaderboard data from HuggingFace Space pickle files.
     Returns a list of dicts: [{"name": ..., "elo": ..., "organization": ..., ...}, ...]
     """
-    # Approach 1: Try the HuggingFace datasets CSV
-    print("[1/3] Trying HuggingFace datasets CSV...")
+    # Step 1: Find the latest elo_results pickle file via HF API
+    print("[1/2] Listing HuggingFace Space files...")
     try:
-        resp = requests.get(ARENA_CSV_URL, timeout=30)
+        resp = requests.get(HF_SPACE_API_URL, timeout=30)
         resp.raise_for_status()
-        return parse_csv_data(resp.text)
+        siblings = resp.json().get("siblings", [])
+        elo_files = sorted(
+            [s["rfilename"] for s in siblings if s["rfilename"].startswith("elo_results_") and s["rfilename"].endswith(".pkl")]
+        )
+        if not elo_files:
+            print("  ✗ No elo_results pickle files found in Space")
+            return None
+        latest_file = elo_files[-1]
+        print(f"  ✓ Found {len(elo_files)} pickle files, latest: {latest_file}")
     except Exception as e:
-        print(f"  ✗ CSV approach failed: {e}")
+        print(f"  ✗ Failed to list Space files: {e}")
+        return None
 
-    # Approach 2: Try the Gradio API
-    print("[2/3] Trying Gradio API...")
+    # Step 2: Download and parse the pickle
+    print(f"[2/2] Downloading {latest_file}...")
     try:
-        payload = {"data": [], "fn_index": 0}
-        resp = requests.post(ARENA_API_URL, json=payload, timeout=30)
+        file_url = HF_SPACE_FILE_URL.format(filename=latest_file)
+        resp = requests.get(file_url, timeout=60)
         resp.raise_for_status()
-        result = resp.json()
-        return parse_gradio_response(result)
-    except Exception as e:
-        print(f"  ✗ Gradio API failed: {e}")
+        data = pickle.loads(resp.content)
 
-    # Approach 3: Try scraping the leaderboard page via API
-    print("[3/3] Trying direct JSON endpoint...")
-    try:
-        resp = requests.get(ARENA_JSON_URL, timeout=30)
-        resp.raise_for_status()
-        return parse_battle_json(resp.json())
-    except Exception as e:
-        print(f"  ✗ Direct JSON failed: {e}")
+        # Navigate to text -> full -> leaderboard_table_df
+        full = data.get("text", {}).get("full", {})
+        df = full.get("leaderboard_table_df")
+        if df is None or not isinstance(df, pd.DataFrame):
+            print("  ✗ Could not find leaderboard_table_df in pickle")
+            return None
 
-    print("ERROR: All data sources failed.")
+        # Sort by rating descending
+        df = df.sort_values(by="rating", ascending=False)
+
+        models = []
+        for model_name, row in df.head(TOP_N * 2).iterrows():
+            ci_val = 6
+            if "rating_upper" in row and "rating_lower" in row:
+                ci_val = int(round((row["rating_upper"] - row["rating_lower"]) / 2))
+
+            models.append({
+                "name": model_name,
+                "elo": round(row["rating"]),
+                "ci": ci_val,
+                "organization": infer_organization(model_name),
+                "license_raw": infer_license(model_name),
+            })
+
+        print(f"  ✓ Parsed {len(models)} models from pickle")
+        return models
+
+    except Exception as e:
+        print(f"  ✗ Failed to download/parse pickle: {e}")
+        return None
     return None
 
 
