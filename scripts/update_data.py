@@ -15,6 +15,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+import re
+
 try:
     import requests
 except ImportError:
@@ -22,16 +24,6 @@ except ImportError:
     import subprocess
     subprocess.check_call([sys.executable, "-m", "pip", "install", "requests"])
     import requests
-
-import pickle
-
-try:
-    import pandas as pd
-except ImportError:
-    print("Installing pandas...")
-    import subprocess
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
-    import pandas as pd
 
 
 # ── Configuration ────────────────────────────────────────────────────────────
@@ -41,11 +33,8 @@ DATA_DIR = SCRIPT_DIR.parent / "data"
 OUTPUT_FILE = DATA_DIR / "latest.json"
 HISTORY_FILE = DATA_DIR / "history.json"
 
-# HuggingFace Space API to list files and find latest elo pickle
-HF_SPACE_API_URL = "https://huggingface.co/api/spaces/lmarena-ai/arena-leaderboard"
-HF_SPACE_FILE_URL = (
-    "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard/resolve/main/{filename}"
-)
+# Arena.ai leaderboard page (embeds JSON data in HTML)
+ARENA_LEADERBOARD_URL = "https://arena.ai/leaderboard/text"
 
 TOP_N = 5  # Number of top models to show
 HISTORY_WEEKS = 5  # Number of weeks of history to keep
@@ -68,66 +57,74 @@ def format_date_es(dt):
 
 def fetch_leaderboard_data():
     """
-    Fetch the latest LMSYS leaderboard data from HuggingFace Space pickle files.
+    Fetch the latest leaderboard data from arena.ai.
+    The data is embedded as double-escaped JSON inside the server-rendered HTML.
     Returns a list of dicts: [{"name": ..., "elo": ..., "organization": ..., ...}, ...]
     """
-    # Step 1: Find the latest elo_results pickle file via HF API
-    print("[1/2] Listing HuggingFace Space files...")
+    print("[1/1] Fetching arena.ai leaderboard page...")
     try:
-        resp = requests.get(HF_SPACE_API_URL, timeout=30)
-        resp.raise_for_status()
-        siblings = resp.json().get("siblings", [])
-        elo_files = sorted(
-            [s["rfilename"] for s in siblings if s["rfilename"].startswith("elo_results_") and s["rfilename"].endswith(".pkl")]
+        resp = requests.get(
+            ARENA_LEADERBOARD_URL,
+            headers={"User-Agent": "Mozilla/5.0 (LMSYS Arena Scout)"},
+            timeout=60,
         )
-        if not elo_files:
-            print("  ✗ No elo_results pickle files found in Space")
-            return None
-        latest_file = elo_files[-1]
-        print(f"  ✓ Found {len(elo_files)} pickle files, latest: {latest_file}")
-    except Exception as e:
-        print(f"  ✗ Failed to list Space files: {e}")
-        return None
-
-    # Step 2: Download and parse the pickle
-    print(f"[2/2] Downloading {latest_file}...")
-    try:
-        file_url = HF_SPACE_FILE_URL.format(filename=latest_file)
-        resp = requests.get(file_url, timeout=60)
         resp.raise_for_status()
-        data = pickle.loads(resp.content)
+        html = resp.text
+        print(f"  ✓ Downloaded {len(html)} bytes")
 
-        # Navigate to text -> full -> leaderboard_table_df
-        full = data.get("text", {}).get("full", {})
-        df = full.get("leaderboard_table_df")
-        if df is None or not isinstance(df, pd.DataFrame):
-            print("  ✗ Could not find leaderboard_table_df in pickle")
+        # Find the embedded leaderboard entries array (double-escaped JSON)
+        marker = '\\"entries\\":['
+        start_idx = html.find(marker)
+        if start_idx < 0:
+            print("  ✗ Could not find entries marker in HTML")
             return None
 
-        # Sort by rating descending
-        df = df.sort_values(by="rating", ascending=False)
+        arr_start = start_idx + len(marker) - 1  # position of '['
+
+        # Find the matching closing bracket
+        depth = 0
+        end_idx = arr_start
+        for i in range(arr_start, min(len(html), arr_start + 300000)):
+            c = html[i]
+            if c == '[':
+                depth += 1
+            elif c == ']':
+                depth -= 1
+                if depth == 0:
+                    end_idx = i + 1
+                    break
+
+        raw = html[arr_start:end_idx]
+        # Unescape double-escaped JSON
+        raw = raw.replace('\\"', '"').replace('\\\\', '\\')
+
+        data = json.loads(raw)
+        print(f"  ✓ Parsed {len(data)} models from arena.ai")
 
         models = []
-        for model_name, row in df.head(TOP_N * 2).iterrows():
-            ci_val = 6
-            if "rating_upper" in row and "rating_lower" in row:
-                ci_val = int(round((row["rating_upper"] - row["rating_lower"]) / 2))
-
+        for entry in data:
+            ci_val = int(round(
+                (entry.get("ratingUpper", 0) - entry.get("ratingLower", 0)) / 2
+            ))
+            license_raw = entry.get("license", "Unknown")
             models.append({
-                "name": model_name,
-                "elo": round(row["rating"]),
+                "name": entry["modelDisplayName"],
+                "elo": round(entry["rating"]),
                 "ci": ci_val,
-                "organization": infer_organization(model_name),
-                "license_raw": infer_license(model_name),
+                "organization": entry.get("modelOrganization", "Unknown"),
+                "license_raw": license_raw,
             })
 
-        print(f"  ✓ Parsed {len(models)} models from pickle")
-        return models
+        # Sort by Elo descending (should already be sorted by rank)
+        models.sort(key=lambda x: x["elo"], reverse=True)
+        return models[:TOP_N * 2]
 
-    except Exception as e:
-        print(f"  ✗ Failed to download/parse pickle: {e}")
+    except json.JSONDecodeError as e:
+        print(f"  ✗ JSON parse error: {e}")
         return None
-    return None
+    except Exception as e:
+        print(f"  ✗ Failed to fetch arena.ai data: {e}")
+        return None
 
 
 def parse_csv_data(csv_text):
@@ -551,8 +548,8 @@ def main():
         "metadata": {
             "last_updated": now.isoformat(),
             "report_date_label": format_date_es(now),
-            "source": "LMSYS Chatbot Arena",
-            "source_url": "https://lmarena.ai/?leaderboard"
+            "source": "Arena (Chatbot Arena)",
+            "source_url": "https://arena.ai/?leaderboard"
         },
         "top_models": top_models,
         "history": history_series,

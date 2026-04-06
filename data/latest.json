@@ -1,15 +1,37 @@
 {
   "metadata": {
-    "last_updated": "2026-04-06T23:25:50.005253+00:00",
+    "last_updated": "2026-04-06T23:44:44.020637+00:00",
     "report_date_label": "6 de Abril, 2026",
-    "source": "LMSYS Chatbot Arena",
-    "source_url": "https://lmarena.ai/?leaderboard"
+    "source": "Arena (Chatbot Arena)",
+    "source_url": "https://arena.ai/?leaderboard"
   },
   "top_models": [
     {
       "rank": 1,
-      "name": "gemini-2.5-pro",
-      "elo": 1466,
+      "name": "claude-opus-4-6-thinking",
+      "elo": 1504,
+      "ci": 6,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "neutral",
+      "trend_delta": 0
+    },
+    {
+      "rank": 2,
+      "name": "claude-opus-4-6",
+      "elo": 1499,
+      "ci": 5,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "neutral",
+      "trend_delta": 0
+    },
+    {
+      "rank": 3,
+      "name": "gemini-3.1-pro-preview",
+      "elo": 1494,
       "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
@@ -18,21 +40,10 @@
       "trend_delta": 0
     },
     {
-      "rank": 2,
-      "name": "mistral-medium-2508",
-      "elo": 1433,
+      "rank": 4,
+      "name": "grok-4.20-beta1",
+      "elo": 1491,
       "ci": 7,
-      "license_type": "open",
-      "license_label": "Abierto (open)",
-      "organization": "Mistral AI",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 3,
-      "name": "grok-4-0709",
-      "elo": 1431,
-      "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "xAI",
@@ -40,24 +51,13 @@
       "trend_delta": 0
     },
     {
-      "rank": 4,
-      "name": "chatgpt-4o-latest-20250326",
-      "elo": 1429,
+      "rank": 5,
+      "name": "gemini-3-pro",
+      "elo": 1486,
       "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
-      "organization": "OpenAI",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 5,
-      "name": "glm-4.5",
-      "elo": 1429,
-      "ci": 6,
-      "license_type": "open",
-      "license_label": "Abierto (open)",
-      "organization": "Zhipu AI",
+      "organization": "Google",
       "trend": "neutral",
       "trend_delta": 0
     }
@@ -72,36 +72,36 @@
     ],
     "series": [
       {
-        "name": "gemini-2.5-pro",
+        "name": "claude-opus-4-6-thinking",
         "color": "#6366f1",
         "data": [
-          1466,
-          1466,
-          1466,
-          1466,
-          1466
+          1504,
+          1504,
+          1504,
+          1504,
+          1504
         ]
       },
       {
-        "name": "mistral-medium-2508",
+        "name": "claude-opus-4-6",
         "color": "#0ea5e9",
         "data": [
-          1433,
-          1433,
-          1433,
-          1433,
-          1433
+          1499,
+          1499,
+          1499,
+          1499,
+          1499
         ]
       },
       {
-        "name": "grok-4-0709",
+        "name": "gemini-3.1-pro-preview",
         "color": "#10b981",
         "data": [
-          1431,
-          1431,
-          1431,
-          1431,
-          1431
+          1494,
+          1494,
+          1494,
+          1494,
+          1494
         ]
       }
     ]
@@ -109,29 +109,29 @@
   "insights": {
     "seismic_movements": [
       {
-        "title": "Liderazgo Claro: gemini-2.5-pro",
-        "content": "<strong>gemini-2.5-pro</strong> de Google domina el ranking con <strong>1466 Elo</strong>, manteniendo una ventaja significativa de 33 puntos sobre el segundo lugar.",
+        "title": "Batalla Cerrada: claude-opus-4-6-thinking vs claude-opus-4-6",
+        "content": "Con solo <strong>5 puntos</strong> de diferencia y un intervalo de confianza de ±6, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
     ],
     "open_source_leader": {
-      "name": "mistral-medium-2508",
-      "organization": "Mistral AI",
-      "license": "Abierto (open)",
-      "elo": 1433,
-      "gap_to_frontier": 33,
-      "gap_percentage": 98,
-      "description": "<strong>mistral-medium-2508</strong> lidera el segmento open source con <strong>1433 Elo</strong>, a solo 33 puntos de la frontera propietaria. La brecha continúa estrechándose semana tras semana.",
-      "gap_note": "La brecha actual de 33 puntos está dentro del margen de error combinado, sugiriendo convergencia entre modelos abiertos y propietarios."
+      "name": "N/A",
+      "organization": "N/A",
+      "license": "N/A",
+      "elo": 0,
+      "gap_to_frontier": 0,
+      "gap_percentage": 0,
+      "description": "No se encontraron modelos open source en el ranking.",
+      "gap_note": ""
     },
     "expert_analysis": {
       "coding": {
         "title": "Categoría: Coding",
-        "content": "En tareas de programación, los modelos de razonamiento extendido como <strong>gemini-2.5-pro</strong> mantienen ventaja en arquitecturas multi-agente y debugging complejo. Sin embargo, los modelos open source están cerrando la brecha en scripting estándar (Python/JavaScript)."
+        "content": "En tareas de programación, los modelos de razonamiento extendido como <strong>claude-opus-4-6-thinking</strong> mantienen ventaja en arquitecturas multi-agente y debugging complejo. Sin embargo, los modelos open source están cerrando la brecha en scripting estándar (Python/JavaScript)."
       },
       "hard_prompts": {
         "title": "Categoría: Hard Prompts",
-        "content": "En resolución de problemas complejos y razonamiento multi-salto, <strong>mistral-medium-2508</strong> destaca gracias a su capacidad de contexto extendido y procesamiento multimodal, superando consistentemente a sus competidores en esta categoría."
+        "content": "En resolución de problemas complejos y razonamiento multi-salto, <strong>claude-opus-4-6</strong> destaca gracias a su capacidad de contexto extendido y procesamiento multimodal, superando consistentemente a sus competidores en esta categoría."
       }
     }
   }
