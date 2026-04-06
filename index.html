@@ -257,17 +257,35 @@
                 </div>
             </div>
 
-            <!-- Chart: 30-day evolution -->
+            <!-- Chart: Weekly evolution -->
             <div class="animate-slide-up stagger-4 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
                 <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
                     <div class="bg-indigo-100 p-1.5 rounded-lg"><i data-lucide="bar-chart-3" class="w-5 h-5 text-indigo-600"></i></div>
                     <h3 class="text-lg font-bold text-slate-800">Evolución Semanal <span class="text-sm font-normal text-slate-400">(Top 3 Modelos Disruptivos)</span></h3>
                 </div>
                 <div class="p-6">
-                    <div class="relative" style="height: 320px;">
+                    <div id="chart-wrapper" class="relative" style="height: 320px;">
                         <canvas id="elo-chart"></canvas>
                     </div>
+                    <div id="chart-no-data" class="hidden text-center py-12">
+                        <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 inline-block">
+                            <i data-lucide="clock" class="w-8 h-8 text-indigo-400 mx-auto mb-2"></i>
+                            <p class="text-indigo-700 font-semibold mb-1">Acumulando datos históricos...</p>
+                            <p class="text-indigo-500 text-sm">La gráfica mostrará la evolución real una vez se acumulen al menos 2 actualizaciones. Se actualiza lunes y jueves.</p>
+                        </div>
+                    </div>
                     <div id="chart-legend" class="mt-4 flex flex-wrap gap-4 justify-center text-xs"></div>
+                </div>
+            </div>
+
+            <!-- Category Leaders -->
+            <div id="category-leaders-section" class="hidden animate-slide-up stagger-4 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
+                <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-violet-50 to-white">
+                    <div class="bg-violet-100 p-1.5 rounded-lg"><i data-lucide="layout-grid" class="w-5 h-5 text-violet-600"></i></div>
+                    <h3 class="text-lg font-bold text-slate-800">Líderes por Categoría <span class="text-sm font-normal text-slate-400">(arena.ai)</span></h3>
+                </div>
+                <div id="category-leaders-container" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Filled dynamically -->
                 </div>
             </div>
 
@@ -316,18 +334,18 @@
                 </div>
                 <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm flex flex-col md:flex-row gap-6">
                     <div class="flex-1">
-                        <a href="https://lmarena.ai/?leaderboard" target="_blank" rel="noopener noreferrer"
+                        <a href="https://arena.ai/?leaderboard" target="_blank" rel="noopener noreferrer"
                             class="text-indigo-600 font-semibold hover:text-indigo-800 inline-flex items-center gap-1 mb-1 text-sm">
-                            LMSYS Chatbot Arena Leaderboard <i data-lucide="external-link" class="w-3 h-3"></i>
+                            Arena Leaderboard (arena.ai) <i data-lucide="external-link" class="w-3 h-3"></i>
                         </a>
                         <p class="text-xs text-slate-500 leading-relaxed">
-                            Datos extraídos de la plataforma oficial Large Model Systems Organization (UC Berkeley, UCSD, CMU). Las puntuaciones Elo se basan en el modelo Bradley-Terry para estimar la probabilidad de victoria en batallas pareadas.
+                            Datos extraídos de la plataforma oficial Arena (UC Berkeley, UCSD, CMU). Las puntuaciones Elo se basan en el modelo Bradley-Terry para estimar la probabilidad de victoria en batallas pareadas.
                         </p>
                     </div>
                     <div class="flex-1">
                         <h5 class="text-slate-700 font-semibold mb-1 text-sm">Categorías de Evaluación</h5>
                         <p class="text-xs text-slate-500 leading-relaxed">
-                            El análisis se focalizó en los subsets de <em>Overall</em> (General), <em>Coding</em> (Programación) y <em>Hard Prompts</em> (Razonamiento Complejo), filtrando modelos con menos de 10,000 votos para garantizar significancia estadística.
+                            Se analizan tres verticales: <em>Texto (Overall)</em>, <em>Código</em> (web dev, programación) y <em>Visión</em> (imagen + texto). Cada categoría tiene su propio ranking Elo basado en evaluación humana ciega.
                         </p>
                     </div>
                 </div>
@@ -352,7 +370,7 @@
                     </a>
                 </div>
                 <p class="text-center text-xs text-slate-400 mt-4 font-mono">
-                    Última actualización: <span id="footer-date"></span> · Datos: LMSYS Chatbot Arena · Nueva actualización cada lunes a las 8:00 AM UTC
+                    Última actualización: <span id="footer-date"></span> · Datos: Arena (arena.ai) · Actualización lunes y jueves a las 8:00 AM UTC
                 </p>
             </footer>
 
@@ -386,7 +404,7 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
-        const { metadata, top_models, history, insights } = DATA;
+        const { metadata, top_models, category_leaders, history, insights } = DATA;
 
         // ── HEADER DATE ─────────────────────────────────────────────
         document.getElementById('header-date').textContent = metadata.report_date_label;
@@ -451,10 +469,17 @@
         lucide.createIcons();
 
         // ── CHART ───────────────────────────────────────────────────
-        const ctx = document.getElementById('elo-chart').getContext('2d');
-        const allValues = history.series.flatMap(s => s.data);
-        const minElo = Math.min(...allValues) - 10;
-        const maxElo = Math.max(...allValues) + 10;
+        // Check if history has real variation (not just padded same values)
+        const hasRealHistory = history.series.some(s => {
+            const unique = new Set(s.data);
+            return unique.size > 1;
+        });
+
+        if (hasRealHistory) {
+            const ctx = document.getElementById('elo-chart').getContext('2d');
+            const allValues = history.series.flatMap(s => s.data);
+            const minElo = Math.min(...allValues) - 10;
+            const maxElo = Math.max(...allValues) + 10;
 
         new Chart(ctx, {
             type: 'line',
@@ -531,6 +556,46 @@
                 <span class="font-mono text-slate-500 ml-1">Δ${delta > 0 ? '+' : ''}${delta}</span>`;
             legendContainer.appendChild(div);
         });
+        } else {
+            // Not enough history data — show message instead of flat chart
+            document.getElementById('chart-wrapper').classList.add('hidden');
+            document.getElementById('chart-no-data').classList.remove('hidden');
+        }
+
+        // ── CATEGORY LEADERS ────────────────────────────────────────
+        if (category_leaders && Object.keys(category_leaders).length > 0) {
+            document.getElementById('category-leaders-section').classList.remove('hidden');
+            const catContainer = document.getElementById('category-leaders-container');
+            const catIcons = { code: 'code-2', vision: 'eye' };
+            const catColors = { code: 'indigo', vision: 'amber' };
+
+            Object.entries(category_leaders).forEach(([key, cat]) => {
+                const color = catColors[key] || 'slate';
+                const icon = catIcons[key] || 'zap';
+                const div = document.createElement('div');
+                div.className = 'bg-gradient-to-br from-slate-50 to-white p-5 rounded-xl border border-slate-200';
+
+                let modelsHtml = cat.top_models.map((m, i) => {
+                    const medals = ['🥇', '🥈', '🥉'];
+                    return `<div class="flex items-center justify-between py-2 ${i < cat.top_models.length - 1 ? 'border-b border-slate-100' : ''}">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">${medals[i] || ''}</span>
+                            <span class="font-semibold text-slate-800 text-sm">${sanitize(m.name)}</span>
+                            <span class="text-xs text-slate-400">${sanitize(m.organization)}</span>
+                        </div>
+                        <span class="font-mono font-bold text-${color}-600 text-sm">${m.elo}</span>
+                    </div>`;
+                }).join('');
+
+                div.innerHTML = `
+                    <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                        <span class="bg-${color}-100 p-1 rounded-lg"><i data-lucide="${icon}" class="w-4 h-4 text-${color}-600"></i></span>
+                        ${sanitize(cat.label)}
+                    </h4>
+                    ${modelsHtml}`;
+                catContainer.appendChild(div);
+            });
+        }
 
         // ── SEISMIC MOVEMENTS ───────────────────────────────────────
         const seismicEl = document.getElementById('seismic-container');

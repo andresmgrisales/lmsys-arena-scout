@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-06T23:44:44.020637+00:00",
+    "last_updated": "2026-04-06T23:54:10.269778+00:00",
     "report_date_label": "6 de Abril, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
@@ -62,6 +62,54 @@
       "trend_delta": 0
     }
   ],
+  "category_leaders": {
+    "code": {
+      "label": "Código",
+      "top_models": [
+        {
+          "rank": 1,
+          "name": "claude-opus-4-6-thinking",
+          "elo": 1546,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 2,
+          "name": "claude-opus-4-6",
+          "elo": 1543,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 3,
+          "name": "claude-sonnet-4-6",
+          "elo": 1521,
+          "organization": "Anthropic"
+        }
+      ]
+    },
+    "vision": {
+      "label": "Visión",
+      "top_models": [
+        {
+          "rank": 1,
+          "name": "claude-opus-4-6",
+          "elo": 1295,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 2,
+          "name": "claude-opus-4-6-thinking",
+          "elo": 1294,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 3,
+          "name": "gemini-3-pro",
+          "elo": 1287,
+          "organization": "Google"
+        }
+      ]
+    }
+  },
   "history": {
     "labels": [
       "Sem -4",
@@ -126,12 +174,12 @@
     },
     "expert_analysis": {
       "coding": {
-        "title": "Categoría: Coding",
-        "content": "En tareas de programación, los modelos de razonamiento extendido como <strong>claude-opus-4-6-thinking</strong> mantienen ventaja en arquitecturas multi-agente y debugging complejo. Sin embargo, los modelos open source están cerrando la brecha en scripting estándar (Python/JavaScript)."
+        "title": "Categoría: Código",
+        "content": "En tareas de programación y desarrollo web, los rankings pueden diferir significativamente del overall. Consulta la sección <strong>Líderes por Categoría</strong> para ver el top real de cada vertical según los votos de arena.ai."
       },
       "hard_prompts": {
-        "title": "Categoría: Hard Prompts",
-        "content": "En resolución de problemas complejos y razonamiento multi-salto, <strong>claude-opus-4-6</strong> destaca gracias a su capacidad de contexto extendido y procesamiento multimodal, superando consistentemente a sus competidores en esta categoría."
+        "title": "Categoría: Visión",
+        "content": "En tareas multimodales (imagen + texto), modelos como los de Google y OpenAI suelen destacar. La sección <strong>Líderes por Categoría</strong> muestra los rankings reales basados en evaluación humana ciega."
       }
     }
   }

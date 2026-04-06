@@ -33,10 +33,16 @@ DATA_DIR = SCRIPT_DIR.parent / "data"
 OUTPUT_FILE = DATA_DIR / "latest.json"
 HISTORY_FILE = DATA_DIR / "history.json"
 
-# Arena.ai leaderboard page (embeds JSON data in HTML)
-ARENA_LEADERBOARD_URL = "https://arena.ai/leaderboard/text"
+# Arena.ai leaderboard pages (each embeds JSON data in HTML)
+ARENA_CATEGORIES = {
+    "text": {"url": "https://arena.ai/leaderboard/text", "label": "Texto (Overall)"},
+    "code": {"url": "https://arena.ai/leaderboard/code", "label": "Código"},
+    "vision": {"url": "https://arena.ai/leaderboard/vision", "label": "Visión"},
+}
+DEFAULT_CATEGORY = "text"
 
 TOP_N = 5  # Number of top models to show
+CATEGORY_TOP_N = 3  # Number of top models per secondary category
 HISTORY_WEEKS = 5  # Number of weeks of history to keep
 
 
@@ -55,76 +61,115 @@ def format_date_es(dt):
 
 # ── Data Fetching ────────────────────────────────────────────────────────────
 
+def _extract_entries_from_html(html):
+    """Extract the leaderboard entries array from arena.ai HTML."""
+    marker = '\\"entries\\":['
+    start_idx = html.find(marker)
+    if start_idx < 0:
+        return None
+
+    arr_start = start_idx + len(marker) - 1  # position of '['
+
+    # Find the matching closing bracket
+    depth = 0
+    end_idx = arr_start
+    for i in range(arr_start, min(len(html), arr_start + 300000)):
+        c = html[i]
+        if c == '[':
+            depth += 1
+        elif c == ']':
+            depth -= 1
+            if depth == 0:
+                end_idx = i + 1
+                break
+
+    raw = html[arr_start:end_idx]
+    raw = raw.replace('\\"', '"').replace('\\\\', '\\')
+    return json.loads(raw)
+
+
+def _entries_to_models(entries, limit=None):
+    """Convert raw entry dicts to our model format."""
+    models = []
+    for entry in entries:
+        ci_val = int(round(
+            (entry.get("ratingUpper", 0) - entry.get("ratingLower", 0)) / 2
+        ))
+        models.append({
+            "name": entry["modelDisplayName"],
+            "elo": round(entry["rating"]),
+            "ci": ci_val,
+            "organization": entry.get("modelOrganization", "Unknown"),
+            "license_raw": entry.get("license", "Unknown"),
+            "votes": entry.get("votes", 0),
+        })
+    models.sort(key=lambda x: x["elo"], reverse=True)
+    return models[:limit] if limit else models
+
+
 def fetch_leaderboard_data():
     """
-    Fetch the latest leaderboard data from arena.ai.
-    The data is embedded as double-escaped JSON inside the server-rendered HTML.
+    Fetch the main (text) leaderboard data from arena.ai.
     Returns a list of dicts: [{"name": ..., "elo": ..., "organization": ..., ...}, ...]
     """
-    print("[1/1] Fetching arena.ai leaderboard page...")
+    url = ARENA_CATEGORIES[DEFAULT_CATEGORY]["url"]
+    print(f"[1/1] Fetching arena.ai leaderboard ({DEFAULT_CATEGORY})...")
     try:
         resp = requests.get(
-            ARENA_LEADERBOARD_URL,
+            url,
             headers={"User-Agent": "Mozilla/5.0 (LMSYS Arena Scout)"},
             timeout=60,
         )
         resp.raise_for_status()
-        html = resp.text
-        print(f"  ✓ Downloaded {len(html)} bytes")
-
-        # Find the embedded leaderboard entries array (double-escaped JSON)
-        marker = '\\"entries\\":['
-        start_idx = html.find(marker)
-        if start_idx < 0:
+        entries = _extract_entries_from_html(resp.text)
+        if entries is None:
             print("  ✗ Could not find entries marker in HTML")
             return None
-
-        arr_start = start_idx + len(marker) - 1  # position of '['
-
-        # Find the matching closing bracket
-        depth = 0
-        end_idx = arr_start
-        for i in range(arr_start, min(len(html), arr_start + 300000)):
-            c = html[i]
-            if c == '[':
-                depth += 1
-            elif c == ']':
-                depth -= 1
-                if depth == 0:
-                    end_idx = i + 1
-                    break
-
-        raw = html[arr_start:end_idx]
-        # Unescape double-escaped JSON
-        raw = raw.replace('\\"', '"').replace('\\\\', '\\')
-
-        data = json.loads(raw)
-        print(f"  ✓ Parsed {len(data)} models from arena.ai")
-
-        models = []
-        for entry in data:
-            ci_val = int(round(
-                (entry.get("ratingUpper", 0) - entry.get("ratingLower", 0)) / 2
-            ))
-            license_raw = entry.get("license", "Unknown")
-            models.append({
-                "name": entry["modelDisplayName"],
-                "elo": round(entry["rating"]),
-                "ci": ci_val,
-                "organization": entry.get("modelOrganization", "Unknown"),
-                "license_raw": license_raw,
-            })
-
-        # Sort by Elo descending (should already be sorted by rank)
-        models.sort(key=lambda x: x["elo"], reverse=True)
-        return models[:TOP_N * 2]
-
+        print(f"  ✓ Parsed {len(entries)} models from arena.ai")
+        return _entries_to_models(entries, limit=TOP_N * 2)
     except json.JSONDecodeError as e:
         print(f"  ✗ JSON parse error: {e}")
         return None
     except Exception as e:
         print(f"  ✗ Failed to fetch arena.ai data: {e}")
         return None
+
+
+def fetch_category_leaders():
+    """
+    Fetch top models from each secondary category (code, vision).
+    Returns dict: {"code": [{...}, ...], "vision": [{...}, ...]}
+    """
+    results = {}
+    for cat_key, cat_info in ARENA_CATEGORIES.items():
+        if cat_key == DEFAULT_CATEGORY:
+            continue
+        print(f"  Fetching category: {cat_info['label']}...")
+        try:
+            resp = requests.get(
+                cat_info["url"],
+                headers={"User-Agent": "Mozilla/5.0 (LMSYS Arena Scout)"},
+                timeout=60,
+            )
+            resp.raise_for_status()
+            entries = _extract_entries_from_html(resp.text)
+            if entries:
+                models = _entries_to_models(entries, limit=CATEGORY_TOP_N)
+                results[cat_key] = {
+                    "label": cat_info["label"],
+                    "top_models": [{
+                        "rank": i + 1,
+                        "name": m["name"],
+                        "elo": m["elo"],
+                        "organization": m["organization"],
+                    } for i, m in enumerate(models)]
+                }
+                print(f"    ✓ {len(entries)} models, top: {models[0]['name']} ({models[0]['elo']} Elo)")
+            else:
+                print(f"    ✗ No entries found")
+        except Exception as e:
+            print(f"    ✗ Error: {e}")
+    return results
 
 
 def parse_csv_data(csv_text):
@@ -474,21 +519,19 @@ def generate_insights(top_models):
         },
         "expert_analysis": {
             "coding": {
-                "title": "Categoría: Coding",
+                "title": "Categoría: Código",
                 "content": (
-                    f"En tareas de programación, los modelos de razonamiento extendido como "
-                    f"<strong>{leader['name']}</strong> mantienen ventaja en arquitecturas multi-agente "
-                    f"y debugging complejo. Sin embargo, los modelos open source están cerrando la brecha "
-                    f"en scripting estándar (Python/JavaScript)."
+                    f"En tareas de programación y desarrollo web, los rankings pueden diferir "
+                    f"significativamente del overall. Consulta la sección <strong>Líderes por Categoría</strong> "
+                    f"para ver el top real de cada vertical según los votos de arena.ai."
                 )
             },
             "hard_prompts": {
-                "title": "Categoría: Hard Prompts",
+                "title": "Categoría: Visión",
                 "content": (
-                    f"En resolución de problemas complejos y razonamiento multi-salto, "
-                    f"<strong>{second['name'] if second else leader['name']}</strong> destaca gracias "
-                    f"a su capacidad de contexto extendido y procesamiento multimodal, superando "
-                    f"consistentemente a sus competidores en esta categoría."
+                    f"En tareas multimodales (imagen + texto), modelos como los de Google y OpenAI "
+                    f"suelen destacar. La sección <strong>Líderes por Categoría</strong> muestra "
+                    f"los rankings reales basados en evaluación humana ciega."
                 )
             }
         }
@@ -542,6 +585,10 @@ def main():
     # Generate insights
     insights = generate_insights(top_models)
 
+    # Fetch secondary category leaders (code, vision)
+    print("\n[2/2] Fetching category leaders...")
+    category_leaders = fetch_category_leaders()
+
     # Build output
     now = datetime.now(timezone.utc)
     output = {
@@ -552,6 +599,7 @@ def main():
             "source_url": "https://arena.ai/?leaderboard"
         },
         "top_models": top_models,
+        "category_leaders": category_leaders,
         "history": history_series,
         "insights": insights,
     }
