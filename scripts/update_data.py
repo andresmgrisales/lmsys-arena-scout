@@ -524,7 +524,7 @@ def generate_insights(top_models):
                 "content": (
                     f"En tareas de programación y desarrollo web, los rankings pueden diferir "
                     f"significativamente del overall. Consulta la sección <strong>Líderes por Categoría</strong> "
-                    f"para ver el top real de cada vertical según los votos de arena.ai."
+                    f"para ver el precio de cada modelo y la ventana de contexto según los votos de arena.ai."
                 )
             },
             "hard_prompts": {

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-07T00:27:19.501227+00:00",
+    "last_updated": "2026-04-07T00:51:32.269149+00:00",
     "report_date_label": "7 de Abril, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
@@ -277,7 +277,7 @@
     "expert_analysis": {
       "coding": {
         "title": "Categoría: Código",
-        "content": "En tareas de programación y desarrollo web, los rankings pueden diferir significativamente del overall. Consulta la sección <strong>Líderes por Categoría</strong> para ver el top real de cada vertical según los votos de arena.ai."
+        "content": "En tareas de programación y desarrollo web, los rankings pueden diferir significativamente del overall. Consulta la sección <strong>Líderes por Categoría</strong> para ver el precio de cada modelo y la ventana de contexto según los votos de arena.ai."
       },
       "hard_prompts": {
         "title": "Categoría: Visión",
