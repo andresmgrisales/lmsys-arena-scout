@@ -11,6 +11,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            safelist: [
+                'text-indigo-600','bg-indigo-100','border-indigo-200','from-indigo-50','to-indigo-100/50',
+                'text-violet-600','bg-violet-100','border-violet-200','from-violet-50','to-violet-100/50',
+                'text-amber-600','bg-amber-100','border-amber-200','from-amber-50','to-amber-100/50',
+                'text-emerald-600','bg-emerald-100','border-emerald-200','from-emerald-50','to-emerald-100/50',
+                'border-l-indigo-500','border-l-emerald-500','border-l-rose-500','border-l-amber-500',
+            ],
             theme: {
                 extend: {
                     fontFamily: {
@@ -379,10 +386,10 @@
         // ── CATEGORY GRID (2x2) ─────────────────────────────────────
         const catGrid = document.getElementById('category-grid');
         const catColorMap = {
-            text: { bg: 'from-indigo-50 to-white', border: 'border-indigo-200', accent: 'indigo', headerBg: 'from-indigo-50 to-indigo-100/50' },
-            code: { bg: 'from-violet-50 to-white', border: 'border-violet-200', accent: 'violet', headerBg: 'from-violet-50 to-violet-100/50' },
-            vision: { bg: 'from-amber-50 to-white', border: 'border-amber-200', accent: 'amber', headerBg: 'from-amber-50 to-amber-100/50' },
-            image: { bg: 'from-emerald-50 to-white', border: 'border-emerald-200', accent: 'emerald', headerBg: 'from-emerald-50 to-emerald-100/50' },
+            text: { border: 'border-indigo-200', headerBg: 'from-indigo-50 to-indigo-100/50', eloCls: 'text-indigo-600', iconBg: 'bg-indigo-100', iconCls: 'text-indigo-600' },
+            code: { border: 'border-violet-200', headerBg: 'from-violet-50 to-violet-100/50', eloCls: 'text-violet-600', iconBg: 'bg-violet-100', iconCls: 'text-violet-600' },
+            vision: { border: 'border-amber-200', headerBg: 'from-amber-50 to-amber-100/50', eloCls: 'text-amber-600', iconBg: 'bg-amber-100', iconCls: 'text-amber-600' },
+            image: { border: 'border-emerald-200', headerBg: 'from-emerald-50 to-emerald-100/50', eloCls: 'text-emerald-600', iconBg: 'bg-emerald-100', iconCls: 'text-emerald-600' },
         };
         const catOrder = ['text', 'code', 'vision', 'image'];
 
@@ -407,7 +414,7 @@
                         </td>
                         <td class="px-3 py-2.5 text-xs text-slate-500 hidden sm:table-cell">${sanitize(m.organization)}</td>
                         <td class="px-3 py-2.5 text-right">
-                            <span class="font-mono font-bold text-${colors.accent}-600 text-sm">${m.elo}</span>
+                            <span class="font-mono font-bold ${colors.eloCls} text-sm">${m.elo}</span>
                         </td>
                     </tr>
                 `).join('');
@@ -415,7 +422,7 @@
                 card.innerHTML = `
                     <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-gradient-to-r ${colors.headerBg}">
                         <div class="flex items-center gap-2">
-                            <span class="bg-${colors.accent}-100 p-1.5 rounded-lg"><i data-lucide="${icon}" class="w-4 h-4 text-${colors.accent}-600"></i></span>
+                            <span class="${colors.iconBg} p-1.5 rounded-lg"><i data-lucide="${icon}" class="w-4 h-4 ${colors.iconCls}"></i></span>
                             <h4 class="font-bold text-slate-800 text-sm">${sanitize(cat.label)}</h4>
                         </div>
                         <span class="text-[10px] text-slate-400 font-mono uppercase">${cat.total_models || ''} modelos</span>
