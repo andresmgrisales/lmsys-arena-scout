@@ -139,9 +139,12 @@ def fetch_leaderboard_data():
 def fetch_category_leaders():
     """
     Fetch top models from ALL categories.
-    Returns dict: {"text": {...}, "code": {...}, "vision": {...}, "image": {...}}
+    Returns tuple: (category_leaders_dict, all_elo_by_category)
+    - category_leaders_dict: {"text": {...top_models...}, ...} for the grid
+    - all_elo_by_category: {"text": {"model_name": elo, ...}, ...} for radar
     """
     results = {}
+    all_elo = {}  # all_elo[cat_key][model_name] = elo
     for cat_key, cat_info in ARENA_CATEGORIES.items():
         print(f"  Fetching category: {cat_info['label']}...")
         try:
@@ -153,7 +156,10 @@ def fetch_category_leaders():
             resp.raise_for_status()
             entries = _extract_entries_from_html(resp.text)
             if entries:
-                models = _entries_to_models(entries, limit=CATEGORY_TOP_N)
+                all_models = _entries_to_models(entries, limit=None)
+                # Store ALL model elos for radar cross-reference
+                all_elo[cat_key] = {m["name"]: m["elo"] for m in all_models}
+                top = all_models[:CATEGORY_TOP_N]
                 results[cat_key] = {
                     "label": cat_info["label"],
                     "icon": cat_info.get("icon", "zap"),
@@ -163,14 +169,49 @@ def fetch_category_leaders():
                         "name": m["name"],
                         "elo": m["elo"],
                         "organization": m["organization"],
-                    } for i, m in enumerate(models)]
+                    } for i, m in enumerate(top)]
                 }
-                print(f"    ✓ {len(entries)} models, top: {models[0]['name']} ({models[0]['elo']} Elo)")
+                print(f"    ✓ {len(entries)} models, top: {top[0]['name']} ({top[0]['elo']} Elo)")
             else:
                 print(f"    ✗ No entries found")
         except Exception as e:
             print(f"    ✗ Error: {e}")
-    return results
+    return results, all_elo
+
+
+RADAR_MODELS_N = 5  # Number of models to show in radar
+RADAR_COLORS = ["#6366f1", "#f43f5e", "#10b981", "#f59e0b", "#8b5cf6"]
+
+def build_radar_data(all_elo, top_models):
+    """
+    Build radar chart data for top N models across all categories.
+    Only includes categories where a model has a score (text, code, vision).
+    Image category uses a very different scale so is excluded from the radar.
+    """
+    # Use top models from the main (text) leaderboard
+    radar_models = [m["name"] for m in top_models[:RADAR_MODELS_N]]
+    # Categories to include in radar (exclude image — different modality/scale)
+    radar_cats = ["text", "code", "vision"]
+    cat_labels = {k: ARENA_CATEGORIES[k]["label"] for k in radar_cats}
+
+    datasets = []
+    for i, model_name in enumerate(radar_models):
+        scores = []
+        for cat_key in radar_cats:
+            elo = all_elo.get(cat_key, {}).get(model_name, None)
+            scores.append(elo)
+        # Only include model if it has at least 2 category scores
+        if sum(1 for s in scores if s is not None) >= 2:
+            datasets.append({
+                "name": model_name,
+                "scores": scores,
+                "color": RADAR_COLORS[i % len(RADAR_COLORS)],
+            })
+
+    return {
+        "categories": [cat_labels[k] for k in radar_cats],
+        "datasets": datasets,
+    }
 
 
 def parse_csv_data(csv_text):
@@ -588,7 +629,12 @@ def main():
 
     # Fetch ALL category leaders (text, code, vision, image)
     print("\n[2/2] Fetching all category leaders...")
-    category_leaders = fetch_category_leaders()
+    category_leaders, all_elo = fetch_category_leaders()
+
+    # Build radar chart data (cross-category comparison)
+    print("\n[3/3] Building radar cross-category data...")
+    radar_data = build_radar_data(all_elo, top_models)
+    print(f"  ✓ Radar: {len(radar_data['datasets'])} models × {len(radar_data['categories'])} categories")
 
     # Build output
     now = datetime.now(timezone.utc)
@@ -601,6 +647,7 @@ def main():
         },
         "top_models": top_models,
         "category_leaders": category_leaders,
+        "radar": radar_data,
         "history": history_series,
         "insights": insights,
     }

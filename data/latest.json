@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-07T00:51:32.269149+00:00",
+    "last_updated": "2026-04-07T01:00:34.131183+00:00",
     "report_date_label": "7 de Abril, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
@@ -211,6 +211,51 @@
         }
       ]
     }
+  },
+  "radar": {
+    "categories": [
+      "Texto (Overall)",
+      "Código",
+      "Visión"
+    ],
+    "datasets": [
+      {
+        "name": "claude-opus-4-6-thinking",
+        "scores": [
+          1504,
+          1546,
+          1294
+        ],
+        "color": "#6366f1"
+      },
+      {
+        "name": "claude-opus-4-6",
+        "scores": [
+          1499,
+          1543,
+          1295
+        ],
+        "color": "#f43f5e"
+      },
+      {
+        "name": "gemini-3.1-pro-preview",
+        "scores": [
+          1494,
+          1456,
+          1279
+        ],
+        "color": "#10b981"
+      },
+      {
+        "name": "gemini-3-pro",
+        "scores": [
+          1486,
+          1438,
+          1287
+        ],
+        "color": "#8b5cf6"
+      }
+    ]
   },
   "history": {
     "labels": [
