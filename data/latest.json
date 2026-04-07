@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-06T23:54:10.269778+00:00",
-    "report_date_label": "6 de Abril, 2026",
+    "last_updated": "2026-04-07T00:27:19.501227+00:00",
+    "report_date_label": "7 de Abril, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -63,8 +63,47 @@
     }
   ],
   "category_leaders": {
+    "text": {
+      "label": "Texto (Overall)",
+      "icon": "message-square",
+      "total_models": 337,
+      "top_models": [
+        {
+          "rank": 1,
+          "name": "claude-opus-4-6-thinking",
+          "elo": 1504,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 2,
+          "name": "claude-opus-4-6",
+          "elo": 1499,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 3,
+          "name": "gemini-3.1-pro-preview",
+          "elo": 1494,
+          "organization": "Google"
+        },
+        {
+          "rank": 4,
+          "name": "grok-4.20-beta1",
+          "elo": 1491,
+          "organization": "xAI"
+        },
+        {
+          "rank": 5,
+          "name": "gemini-3-pro",
+          "elo": 1486,
+          "organization": "Google"
+        }
+      ]
+    },
     "code": {
       "label": "Código",
+      "icon": "code-2",
+      "total_models": 59,
       "top_models": [
         {
           "rank": 1,
@@ -83,11 +122,25 @@
           "name": "claude-sonnet-4-6",
           "elo": 1521,
           "organization": "Anthropic"
+        },
+        {
+          "rank": 4,
+          "name": "claude-opus-4-5-20251101-thinking-32k",
+          "elo": 1491,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 5,
+          "name": "claude-opus-4-5-20251101",
+          "elo": 1465,
+          "organization": "Anthropic"
         }
       ]
     },
     "vision": {
       "label": "Visión",
+      "icon": "eye",
+      "total_models": 110,
       "top_models": [
         {
           "rank": 1,
@@ -106,6 +159,55 @@
           "name": "gemini-3-pro",
           "elo": 1287,
           "organization": "Google"
+        },
+        {
+          "rank": 4,
+          "name": "gemini-3.1-pro-preview",
+          "elo": 1279,
+          "organization": "Google"
+        },
+        {
+          "rank": 5,
+          "name": "gpt-5.2-chat-latest-20260210",
+          "elo": 1278,
+          "organization": "OpenAI"
+        }
+      ]
+    },
+    "image": {
+      "label": "Imagen",
+      "icon": "image",
+      "total_models": 52,
+      "top_models": [
+        {
+          "rank": 1,
+          "name": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
+          "elo": 1265,
+          "organization": "Google"
+        },
+        {
+          "rank": 2,
+          "name": "gpt-image-1.5-high-fidelity",
+          "elo": 1244,
+          "organization": "OpenAI"
+        },
+        {
+          "rank": 3,
+          "name": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
+          "elo": 1233,
+          "organization": "Google"
+        },
+        {
+          "rank": 4,
+          "name": "gemini-3-pro-image-preview (nano-banana-pro)",
+          "elo": 1232,
+          "organization": "Google"
+        },
+        {
+          "rank": 5,
+          "name": "mai-image-2",
+          "elo": 1190,
+          "organization": "Microsoft AI"
         }
       ]
     }

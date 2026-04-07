@@ -38,9 +38,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
@@ -231,61 +228,14 @@
                 </div>
             </div>
 
-            <!-- Top 5 Table -->
-            <div class="animate-slide-up stagger-3 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden card-hover">
-                <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
-                    <div class="bg-amber-100 p-1.5 rounded-lg"><i data-lucide="trophy" class="w-5 h-5 text-amber-600"></i></div>
-                    <h3 class="text-lg font-bold text-slate-800 tracking-wide">El Top 5 Actual <span class="text-sm font-normal text-slate-400">(Overall)</span></h3>
+            <!-- Category Leaderboards Grid (2x2) -->
+            <div class="animate-slide-up stagger-3">
+                <div class="flex items-center gap-2.5 mb-4">
+                    <div class="bg-amber-100 p-1.5 rounded-lg"><i data-lucide="layout-grid" class="w-5 h-5 text-amber-600"></i></div>
+                    <h3 class="text-lg font-bold text-slate-800 tracking-wide">Rankings por Categoría <span class="text-sm font-normal text-slate-400">(Top 5 · arena.ai)</span></h3>
                 </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm">
-                        <thead>
-                            <tr class="text-xs uppercase bg-slate-50 text-slate-500 tracking-wider">
-                                <th class="px-6 py-3.5 font-semibold">Rank</th>
-                                <th class="px-6 py-3.5 font-semibold">Modelo</th>
-                                <th class="px-6 py-3.5 font-semibold">Organización</th>
-                                <th class="px-6 py-3.5 font-semibold">Elo Score</th>
-                                <th class="px-6 py-3.5 font-semibold">CI 95%</th>
-                                <th class="px-6 py-3.5 font-semibold">Licencia</th>
-                                <th class="px-6 py-3.5 font-semibold">Tendencia</th>
-                            </tr>
-                        </thead>
-                        <tbody id="top5-table-body">
-                            <!-- Filled dynamically -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Chart: Weekly evolution -->
-            <div class="animate-slide-up stagger-4 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
-                <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
-                    <div class="bg-indigo-100 p-1.5 rounded-lg"><i data-lucide="bar-chart-3" class="w-5 h-5 text-indigo-600"></i></div>
-                    <h3 class="text-lg font-bold text-slate-800">Evolución Semanal <span class="text-sm font-normal text-slate-400">(Top 3 Modelos Disruptivos)</span></h3>
-                </div>
-                <div class="p-6">
-                    <div id="chart-wrapper" class="relative" style="height: 320px;">
-                        <canvas id="elo-chart"></canvas>
-                    </div>
-                    <div id="chart-no-data" class="hidden text-center py-12">
-                        <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 inline-block">
-                            <i data-lucide="clock" class="w-8 h-8 text-indigo-400 mx-auto mb-2"></i>
-                            <p class="text-indigo-700 font-semibold mb-1">Acumulando datos históricos...</p>
-                            <p class="text-indigo-500 text-sm">La gráfica mostrará la evolución real una vez se acumulen al menos 2 actualizaciones. Se actualiza lunes y jueves.</p>
-                        </div>
-                    </div>
-                    <div id="chart-legend" class="mt-4 flex flex-wrap gap-4 justify-center text-xs"></div>
-                </div>
-            </div>
-
-            <!-- Category Leaders -->
-            <div id="category-leaders-section" class="hidden animate-slide-up stagger-4 bg-white rounded-xl border border-slate-200 shadow-sm card-hover overflow-hidden">
-                <div class="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-violet-50 to-white">
-                    <div class="bg-violet-100 p-1.5 rounded-lg"><i data-lucide="layout-grid" class="w-5 h-5 text-violet-600"></i></div>
-                    <h3 class="text-lg font-bold text-slate-800">Líderes por Categoría <span class="text-sm font-normal text-slate-400">(arena.ai)</span></h3>
-                </div>
-                <div id="category-leaders-container" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Filled dynamically -->
+                <div id="category-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Filled dynamically with 4 category cards -->
                 </div>
             </div>
 
@@ -426,176 +376,68 @@
         const gap = leader.elo - openModel.elo;
         document.getElementById('kpi-gap').textContent = gap + ' puntos Elo';
 
-        // ── TOP 5 TABLE ─────────────────────────────────────────────
-        const tbody = document.getElementById('top5-table-body');
-        const trendIcons = { up: 'arrow-up-right', down: 'arrow-down-right', neutral: 'minus' };
-        const trendColors = { up: 'text-emerald-600', down: 'text-rose-600', neutral: 'text-slate-400' };
-        const trendBg = { up: 'bg-emerald-50', down: 'bg-rose-50', neutral: 'bg-slate-50' };
-        const rankClasses = ['rank-gold', 'rank-silver', 'rank-bronze', '', ''];
+        // ── CATEGORY GRID (2x2) ─────────────────────────────────────
+        const catGrid = document.getElementById('category-grid');
+        const catColorMap = {
+            text: { bg: 'from-indigo-50 to-white', border: 'border-indigo-200', accent: 'indigo', headerBg: 'from-indigo-50 to-indigo-100/50' },
+            code: { bg: 'from-violet-50 to-white', border: 'border-violet-200', accent: 'violet', headerBg: 'from-violet-50 to-violet-100/50' },
+            vision: { bg: 'from-amber-50 to-white', border: 'border-amber-200', accent: 'amber', headerBg: 'from-amber-50 to-amber-100/50' },
+            image: { bg: 'from-emerald-50 to-white', border: 'border-emerald-200', accent: 'emerald', headerBg: 'from-emerald-50 to-emerald-100/50' },
+        };
+        const catOrder = ['text', 'code', 'vision', 'image'];
 
-        top_models.forEach((m, i) => {
-            const tr = document.createElement('tr');
-            tr.className = 'border-b border-slate-100 table-row-hover';
-            const rankBadgeClass = i < 3 ? rankClasses[i] : 'bg-slate-100 text-slate-600';
-            const licenseClass = m.license_type === 'open'
-                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                : 'bg-slate-50 text-slate-600 border-slate-200';
-            const deltaText = m.trend_delta > 0 ? '+' + m.trend_delta : (m.trend_delta < 0 ? m.trend_delta : '0');
-            const deltaColor = m.trend_delta > 0 ? 'text-emerald-600' : (m.trend_delta < 0 ? 'text-rose-600' : 'text-slate-400');
+        if (category_leaders && Object.keys(category_leaders).length > 0) {
+            catOrder.forEach(key => {
+                const cat = category_leaders[key];
+                if (!cat) return;
+                const colors = catColorMap[key] || catColorMap.text;
+                const icon = cat.icon || 'zap';
 
-            tr.innerHTML = `
-                <td class="px-6 py-4">
-                    <span class="${rankBadgeClass} inline-flex items-center justify-center w-8 h-8 rounded-lg font-bold text-sm shadow-sm">#${m.rank}</span>
-                </td>
-                <td class="px-6 py-4 font-bold text-slate-800">${sanitize(m.name)}</td>
-                <td class="px-6 py-4 text-slate-600 font-medium">${sanitize(m.organization)}</td>
-                <td class="px-6 py-4">
-                    <span class="text-xl font-extrabold font-mono text-slate-800">${m.elo}</span>
-                </td>
-                <td class="px-6 py-4 font-mono text-slate-500 text-xs">±${m.ci}</td>
-                <td class="px-6 py-4">
-                    <span class="${licenseClass} px-2.5 py-1 text-[10px] uppercase tracking-wider rounded-full font-bold border">${sanitize(m.license_label)}</span>
-                </td>
-                <td class="px-6 py-4">
-                    <span class="${trendBg[m.trend]} ${trendColors[m.trend]} inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold font-mono">
-                        <i data-lucide="${trendIcons[m.trend]}" class="w-3.5 h-3.5"></i>
-                        ${deltaText}
-                    </span>
-                </td>`;
-            tbody.appendChild(tr);
-        });
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-xl border border-slate-200 ${colors.border} shadow-sm card-hover overflow-hidden`;
+
+                const medals = ['🥇', '🥈', '🥉', '', ''];
+                let rowsHtml = cat.top_models.map((m, i) => `
+                    <tr class="border-b border-slate-50 table-row-hover">
+                        <td class="px-3 py-2.5 text-center">
+                            <span class="text-sm">${medals[i] || `<span class="text-xs text-slate-400 font-mono">#${m.rank}</span>`}</span>
+                        </td>
+                        <td class="px-3 py-2.5">
+                            <span class="font-semibold text-slate-800 text-sm">${sanitize(m.name)}</span>
+                        </td>
+                        <td class="px-3 py-2.5 text-xs text-slate-500 hidden sm:table-cell">${sanitize(m.organization)}</td>
+                        <td class="px-3 py-2.5 text-right">
+                            <span class="font-mono font-bold text-${colors.accent}-600 text-sm">${m.elo}</span>
+                        </td>
+                    </tr>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-gradient-to-r ${colors.headerBg}">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-${colors.accent}-100 p-1.5 rounded-lg"><i data-lucide="${icon}" class="w-4 h-4 text-${colors.accent}-600"></i></span>
+                            <h4 class="font-bold text-slate-800 text-sm">${sanitize(cat.label)}</h4>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-mono uppercase">${cat.total_models || ''} modelos</span>
+                    </div>
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="text-[10px] uppercase text-slate-400 tracking-wider">
+                                <th class="px-3 py-2 font-semibold w-10"></th>
+                                <th class="px-3 py-2 font-semibold">Modelo</th>
+                                <th class="px-3 py-2 font-semibold hidden sm:table-cell">Org</th>
+                                <th class="px-3 py-2 font-semibold text-right">Elo</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rowsHtml}</tbody>
+                    </table>`;
+
+                catGrid.appendChild(card);
+            });
+        }
 
         // Re-init icons for dynamically added content
         lucide.createIcons();
-
-        // ── CHART ───────────────────────────────────────────────────
-        // Check if history has real variation (not just padded same values)
-        const hasRealHistory = history.series.some(s => {
-            const unique = new Set(s.data);
-            return unique.size > 1;
-        });
-
-        if (hasRealHistory) {
-            const ctx = document.getElementById('elo-chart').getContext('2d');
-            const allValues = history.series.flatMap(s => s.data);
-            const minElo = Math.min(...allValues) - 10;
-            const maxElo = Math.max(...allValues) + 10;
-
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: history.labels,
-                datasets: history.series.map(s => ({
-                    label: s.name,
-                    data: s.data,
-                    borderColor: s.color,
-                    backgroundColor: s.color + '18',
-                    borderWidth: 3,
-                    pointRadius: 5,
-                    pointHoverRadius: 8,
-                    pointBackgroundColor: '#ffffff',
-                    pointBorderColor: s.color,
-                    pointBorderWidth: 2.5,
-                    tension: 0.3,
-                    fill: true,
-                }))
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: { mode: 'index', intersect: false },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#1e293b',
-                        titleFont: { family: 'Inter', size: 13, weight: '600' },
-                        bodyFont: { family: 'JetBrains Mono', size: 12 },
-                        padding: 12,
-                        cornerRadius: 8,
-                        callbacks: {
-                            label: function(ctx) {
-                                return ` ${ctx.dataset.label}: ${ctx.parsed.y} Elo`;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        min: minElo,
-                        max: maxElo,
-                        grid: { color: '#f1f5f9', drawBorder: false },
-                        ticks: {
-                            font: { family: 'JetBrains Mono', size: 11 },
-                            color: '#94a3b8',
-                            padding: 8,
-                        },
-                        border: { display: false },
-                    },
-                    x: {
-                        grid: { display: false },
-                        ticks: {
-                            font: { family: 'Inter', size: 12, weight: '600' },
-                            color: '#64748b',
-                            padding: 8,
-                        },
-                        border: { display: false },
-                    }
-                }
-            }
-        });
-
-        // Custom chart legend
-        const legendContainer = document.getElementById('chart-legend');
-        history.series.forEach(s => {
-            const delta = s.data[s.data.length - 1] - s.data[0];
-            const div = document.createElement('div');
-            div.className = 'flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5';
-            div.innerHTML = `
-                <span class="w-3 h-3 rounded-full flex-shrink-0 shadow-sm" style="background:${s.color}"></span>
-                <span class="font-semibold text-slate-700">${sanitize(s.name)}</span>
-                <span class="font-mono text-slate-500 ml-1">Δ${delta > 0 ? '+' : ''}${delta}</span>`;
-            legendContainer.appendChild(div);
-        });
-        } else {
-            // Not enough history data — show message instead of flat chart
-            document.getElementById('chart-wrapper').classList.add('hidden');
-            document.getElementById('chart-no-data').classList.remove('hidden');
-        }
-
-        // ── CATEGORY LEADERS ────────────────────────────────────────
-        if (category_leaders && Object.keys(category_leaders).length > 0) {
-            document.getElementById('category-leaders-section').classList.remove('hidden');
-            const catContainer = document.getElementById('category-leaders-container');
-            const catIcons = { code: 'code-2', vision: 'eye' };
-            const catColors = { code: 'indigo', vision: 'amber' };
-
-            Object.entries(category_leaders).forEach(([key, cat]) => {
-                const color = catColors[key] || 'slate';
-                const icon = catIcons[key] || 'zap';
-                const div = document.createElement('div');
-                div.className = 'bg-gradient-to-br from-slate-50 to-white p-5 rounded-xl border border-slate-200';
-
-                let modelsHtml = cat.top_models.map((m, i) => {
-                    const medals = ['🥇', '🥈', '🥉'];
-                    return `<div class="flex items-center justify-between py-2 ${i < cat.top_models.length - 1 ? 'border-b border-slate-100' : ''}">
-                        <div class="flex items-center gap-2">
-                            <span class="text-sm">${medals[i] || ''}</span>
-                            <span class="font-semibold text-slate-800 text-sm">${sanitize(m.name)}</span>
-                            <span class="text-xs text-slate-400">${sanitize(m.organization)}</span>
-                        </div>
-                        <span class="font-mono font-bold text-${color}-600 text-sm">${m.elo}</span>
-                    </div>`;
-                }).join('');
-
-                div.innerHTML = `
-                    <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
-                        <span class="bg-${color}-100 p-1 rounded-lg"><i data-lucide="${icon}" class="w-4 h-4 text-${color}-600"></i></span>
-                        ${sanitize(cat.label)}
-                    </h4>
-                    ${modelsHtml}`;
-                catContainer.appendChild(div);
-            });
-        }
 
         // ── SEISMIC MOVEMENTS ───────────────────────────────────────
         const seismicEl = document.getElementById('seismic-container');
@@ -662,12 +504,18 @@
 
         // ── CSV EXPORT ──────────────────────────────────────────────
         document.getElementById('btn-download').addEventListener('click', () => {
-            const headers = ['Rank,Modelo,Organización,Elo,CI,Licencia,Tendencia'];
-            const rows = top_models.map(m =>
-                `${m.rank},"${m.name}","${m.organization}",${m.elo},±${m.ci},"${m.license_label}",${m.trend_delta}`
-            );
-            const csvContent = '\uFEFF' + headers.concat(rows).join('\n'); // BOM for Excel UTF-8
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            let csvLines = ['\uFEFF']; // BOM for Excel UTF-8
+            const catOrder = ['text', 'code', 'vision', 'image'];
+            catOrder.forEach(key => {
+                const cat = category_leaders[key];
+                if (!cat) return;
+                csvLines.push(`\n${cat.label}`);
+                csvLines.push('Rank,Modelo,Organización,Elo');
+                cat.top_models.forEach(m => {
+                    csvLines.push(`${m.rank},"${m.name}","${m.organization}",${m.elo}`);
+                });
+            });
+            const blob = new Blob([csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;

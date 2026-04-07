@@ -35,14 +35,15 @@ HISTORY_FILE = DATA_DIR / "history.json"
 
 # Arena.ai leaderboard pages (each embeds JSON data in HTML)
 ARENA_CATEGORIES = {
-    "text": {"url": "https://arena.ai/leaderboard/text", "label": "Texto (Overall)"},
-    "code": {"url": "https://arena.ai/leaderboard/code", "label": "Código"},
-    "vision": {"url": "https://arena.ai/leaderboard/vision", "label": "Visión"},
+    "text": {"url": "https://arena.ai/leaderboard/text", "label": "Texto (Overall)", "icon": "message-square"},
+    "code": {"url": "https://arena.ai/leaderboard/code", "label": "Código", "icon": "code-2"},
+    "vision": {"url": "https://arena.ai/leaderboard/vision", "label": "Visión", "icon": "eye"},
+    "image": {"url": "https://arena.ai/leaderboard/text-to-image", "label": "Imagen", "icon": "image"},
 }
 DEFAULT_CATEGORY = "text"
 
-TOP_N = 5  # Number of top models to show
-CATEGORY_TOP_N = 3  # Number of top models per secondary category
+TOP_N = 5  # Number of top models to show in main + each category
+CATEGORY_TOP_N = 5  # Number of top models per category card
 HISTORY_WEEKS = 5  # Number of weeks of history to keep
 
 
@@ -137,13 +138,11 @@ def fetch_leaderboard_data():
 
 def fetch_category_leaders():
     """
-    Fetch top models from each secondary category (code, vision).
-    Returns dict: {"code": [{...}, ...], "vision": [{...}, ...]}
+    Fetch top models from ALL categories.
+    Returns dict: {"text": {...}, "code": {...}, "vision": {...}, "image": {...}}
     """
     results = {}
     for cat_key, cat_info in ARENA_CATEGORIES.items():
-        if cat_key == DEFAULT_CATEGORY:
-            continue
         print(f"  Fetching category: {cat_info['label']}...")
         try:
             resp = requests.get(
@@ -157,6 +156,8 @@ def fetch_category_leaders():
                 models = _entries_to_models(entries, limit=CATEGORY_TOP_N)
                 results[cat_key] = {
                     "label": cat_info["label"],
+                    "icon": cat_info.get("icon", "zap"),
+                    "total_models": len(entries),
                     "top_models": [{
                         "rank": i + 1,
                         "name": m["name"],
@@ -585,8 +586,8 @@ def main():
     # Generate insights
     insights = generate_insights(top_models)
 
-    # Fetch secondary category leaders (code, vision)
-    print("\n[2/2] Fetching category leaders...")
+    # Fetch ALL category leaders (text, code, vision, image)
+    print("\n[2/2] Fetching all category leaders...")
     category_leaders = fetch_category_leaders()
 
     # Build output
