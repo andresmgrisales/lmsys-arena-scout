@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-23T08:32:04.106771+00:00",
-    "report_date_label": "23 de Abril, 2026",
+    "last_updated": "2026-04-27T08:46:48.708171+00:00",
+    "report_date_label": "27 de Abril, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,19 +14,19 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -2
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
       "name": "claude-opus-4-6-thinking",
-      "elo": 1502,
+      "elo": 1503,
       "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "up",
+      "trend_delta": 1
     },
     {
       "rank": 3,
@@ -36,8 +36,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 4,
@@ -47,8 +47,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -4
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
@@ -66,7 +66,7 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 343,
+      "total_models": 347,
       "top_models": [
         {
           "rank": 1,
@@ -77,7 +77,7 @@
         {
           "rank": 2,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1502,
+          "elo": 1503,
           "organization": "Anthropic"
         },
         {
@@ -103,12 +103,12 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 64,
+      "total_models": 65,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1576,
+          "elo": 1572,
           "organization": "Anthropic"
         },
         {
@@ -177,18 +177,18 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 55,
+      "total_models": 57,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1512,
+          "elo": 1507,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
-          "elo": 1270,
+          "elo": 1271,
           "organization": "Google"
         },
         {
@@ -200,7 +200,7 @@
         {
           "rank": 4,
           "name": "gpt-image-1.5-high-fidelity",
-          "elo": 1241,
+          "elo": 1242,
           "organization": "OpenAI"
         },
         {
@@ -223,7 +223,7 @@
         "name": "claude-opus-4-7-thinking",
         "scores": [
           1503,
-          1576,
+          1572,
           1306
         ],
         "color": "#6366f1"
@@ -231,7 +231,7 @@
       {
         "name": "claude-opus-4-6-thinking",
         "scores": [
-          1502,
+          1503,
           1552,
           1303
         ],
@@ -259,7 +259,7 @@
         "name": "gemini-3.1-pro-preview",
         "scores": [
           1493,
-          1456,
+          1457,
           1279
         ],
         "color": "#8b5cf6"
@@ -282,7 +282,7 @@
           1505,
           1505,
           1505,
-          1505,
+          1503,
           1503
         ]
       },
@@ -290,21 +290,21 @@
         "name": "claude-opus-4-6-thinking",
         "color": "#0ea5e9",
         "data": [
-          1503,
           1504,
           1502,
           1503,
-          1502
+          1502,
+          1503
         ]
       },
       {
         "name": "claude-opus-4-6",
         "color": "#10b981",
         "data": [
-          1497,
           1496,
           1496,
           1497,
+          1496,
           1496
         ]
       }
@@ -314,13 +314,8 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-opus-4-7-thinking vs claude-opus-4-6-thinking",
-        "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±8, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>0 puntos</strong> de diferencia y un intervalo de confianza de ±8, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
-      },
-      {
-        "title": "Movimiento Notable: claude-opus-4-7",
-        "content": "<strong>claude-opus-4-7</strong> bajó <strong>4 puntos Elo</strong> esta semana, señalando un cambio significativo en las preferencias de los evaluadores humanos.",
-        "accent_color": "emerald"
       }
     ],
     "open_source_leader": {
