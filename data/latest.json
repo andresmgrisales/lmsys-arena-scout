@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-30T08:42:31.554630+00:00",
-    "report_date_label": "30 de Abril, 2026",
+    "last_updated": "2026-05-04T08:46:40.554159+00:00",
+    "report_date_label": "4 de Mayo, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -25,8 +25,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 3,
@@ -36,22 +36,11 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 4,
-      "name": "claude-opus-4-7",
-      "elo": 1495,
-      "ci": 7,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
-    },
-    {
-      "rank": 5,
       "name": "gemini-3.1-pro-preview",
       "elo": 1493,
       "ci": 5,
@@ -60,13 +49,24 @@
       "organization": "Google",
       "trend": "neutral",
       "trend_delta": 0
+    },
+    {
+      "rank": 5,
+      "name": "claude-opus-4-7",
+      "elo": 1491,
+      "ci": 7,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "down",
+      "trend_delta": -4
     }
   ],
   "category_leaders": {
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 352,
+      "total_models": 356,
       "top_models": [
         {
           "rank": 1,
@@ -88,22 +88,22 @@
         },
         {
           "rank": 4,
-          "name": "claude-opus-4-7",
-          "elo": 1495,
-          "organization": "Anthropic"
-        },
-        {
-          "rank": 5,
           "name": "gemini-3.1-pro-preview",
           "elo": 1493,
           "organization": "Google"
+        },
+        {
+          "rank": 5,
+          "name": "claude-opus-4-7",
+          "elo": 1491,
+          "organization": "Anthropic"
         }
       ]
     },
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 69,
+      "total_models": 71,
       "top_models": [
         {
           "rank": 1,
@@ -114,19 +114,19 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1565,
+          "elo": 1561,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1551,
+          "elo": 1548,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-6",
-          "elo": 1548,
+          "elo": 1543,
           "organization": "Anthropic"
         },
         {
@@ -140,24 +140,24 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 118,
+      "total_models": 120,
       "top_models": [
         {
           "rank": 1,
-          "name": "claude-opus-4-7-thinking",
-          "elo": 1303,
-          "organization": "Anthropic"
-        },
-        {
-          "rank": 2,
           "name": "claude-opus-4-6-thinking",
           "elo": 1303,
           "organization": "Anthropic"
         },
         {
+          "rank": 2,
+          "name": "claude-opus-4-7-thinking",
+          "elo": 1302,
+          "organization": "Anthropic"
+        },
+        {
           "rank": 3,
           "name": "claude-opus-4-7",
-          "elo": 1302,
+          "elo": 1299,
           "organization": "Anthropic"
         },
         {
@@ -169,7 +169,7 @@
         {
           "rank": 5,
           "name": "gpt-5.5",
-          "elo": 1290,
+          "elo": 1293,
           "organization": "OpenAI"
         }
       ]
@@ -224,7 +224,7 @@
         "scores": [
           1503,
           1571,
-          1303
+          1302
         ],
         "color": "#6366f1"
       },
@@ -232,7 +232,7 @@
         "name": "claude-opus-4-6-thinking",
         "scores": [
           1502,
-          1551,
+          1548,
           1303
         ],
         "color": "#f43f5e"
@@ -241,26 +241,26 @@
         "name": "claude-opus-4-6",
         "scores": [
           1497,
-          1548,
-          1290
+          1543,
+          1293
         ],
         "color": "#10b981"
-      },
-      {
-        "name": "claude-opus-4-7",
-        "scores": [
-          1495,
-          1565,
-          1302
-        ],
-        "color": "#f59e0b"
       },
       {
         "name": "gemini-3.1-pro-preview",
         "scores": [
           1493,
-          1456,
-          1279
+          1453,
+          1277
+        ],
+        "color": "#f59e0b"
+      },
+      {
+        "name": "claude-opus-4-7",
+        "scores": [
+          1491,
+          1561,
+          1299
         ],
         "color": "#8b5cf6"
       }
@@ -280,7 +280,7 @@
         "color": "#6366f1",
         "data": [
           1505,
-          1505,
+          1503,
           1503,
           1503,
           1503
@@ -290,10 +290,10 @@
         "name": "claude-opus-4-6-thinking",
         "color": "#0ea5e9",
         "data": [
-          1502,
           1503,
           1502,
           1503,
+          1502,
           1502
         ]
       },
@@ -301,10 +301,10 @@
         "name": "claude-opus-4-6",
         "color": "#10b981",
         "data": [
-          1496,
           1497,
           1496,
           1496,
+          1497,
           1497
         ]
       }
@@ -316,6 +316,11 @@
         "title": "Batalla Cerrada: claude-opus-4-7-thinking vs claude-opus-4-6-thinking",
         "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±7, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
+      },
+      {
+        "title": "Movimiento Notable: claude-opus-4-7",
+        "content": "<strong>claude-opus-4-7</strong> bajó <strong>4 puntos Elo</strong> esta semana, señalando un cambio significativo en las preferencias de los evaluadores humanos.",
+        "accent_color": "emerald"
       }
     ],
     "open_source_leader": {
