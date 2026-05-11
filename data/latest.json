@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-05-07T08:50:39.253001+00:00",
-    "report_date_label": "7 de Mayo, 2026",
+    "last_updated": "2026-05-11T09:02:08.854372+00:00",
+    "report_date_label": "11 de Mayo, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -36,8 +36,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 4,
@@ -47,8 +47,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Google",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
@@ -103,7 +103,7 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 73,
+      "total_models": 77,
       "top_models": [
         {
           "rank": 1,
@@ -114,25 +114,25 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1561,
+          "elo": 1560,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1548,
+          "elo": 1549,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-6",
-          "elo": 1543,
+          "elo": 1544,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
           "name": "glm-5.1",
-          "elo": 1532,
+          "elo": 1531,
           "organization": "Z.ai"
         }
       ]
@@ -140,30 +140,30 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 121,
+      "total_models": 123,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1303,
+          "elo": 1305,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
-          "name": "claude-opus-4-6-thinking",
-          "elo": 1301,
-          "organization": "Anthropic"
-        },
-        {
-          "rank": 3,
           "name": "claude-opus-4-7",
           "elo": 1301,
           "organization": "Anthropic"
         },
         {
+          "rank": 3,
+          "name": "claude-opus-4-6-thinking",
+          "elo": 1300,
+          "organization": "Anthropic"
+        },
+        {
           "rank": 4,
           "name": "muse-spark",
-          "elo": 1297,
+          "elo": 1298,
           "organization": "Meta"
         },
         {
@@ -224,7 +224,7 @@
         "scores": [
           1503,
           1570,
-          1303
+          1305
         ],
         "color": "#6366f1"
       },
@@ -232,8 +232,8 @@
         "name": "claude-opus-4-6-thinking",
         "scores": [
           1502,
-          1548,
-          1301
+          1549,
+          1300
         ],
         "color": "#f43f5e"
       },
@@ -241,7 +241,7 @@
         "name": "claude-opus-4-6",
         "scores": [
           1498,
-          1543,
+          1544,
           1291
         ],
         "color": "#10b981"
@@ -250,8 +250,8 @@
         "name": "gemini-3.1-pro-preview",
         "scores": [
           1492,
-          1454,
-          1278
+          1452,
+          1277
         ],
         "color": "#f59e0b"
       },
@@ -259,7 +259,7 @@
         "name": "claude-opus-4-7",
         "scores": [
           1491,
-          1561,
+          1560,
           1301
         ],
         "color": "#8b5cf6"
@@ -290,8 +290,8 @@
         "name": "claude-opus-4-6-thinking",
         "color": "#0ea5e9",
         "data": [
-          1502,
           1503,
+          1502,
           1502,
           1502,
           1502
@@ -302,9 +302,9 @@
         "color": "#10b981",
         "data": [
           1496,
-          1496,
           1497,
           1497,
+          1498,
           1498
         ]
       }
