@@ -1,24 +1,13 @@
 {
   "metadata": {
-    "last_updated": "2026-05-11T09:02:08.854372+00:00",
-    "report_date_label": "11 de Mayo, 2026",
+    "last_updated": "2026-05-14T08:52:54.484374+00:00",
+    "report_date_label": "14 de Mayo, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
   "top_models": [
     {
       "rank": 1,
-      "name": "claude-opus-4-7-thinking",
-      "elo": 1503,
-      "ci": 6,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 2,
       "name": "claude-opus-4-6-thinking",
       "elo": 1502,
       "ci": 5,
@@ -29,10 +18,21 @@
       "trend_delta": 0
     },
     {
+      "rank": 2,
+      "name": "claude-opus-4-7-thinking",
+      "elo": 1501,
+      "ci": 6,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "down",
+      "trend_delta": -2
+    },
+    {
       "rank": 3,
       "name": "claude-opus-4-6",
       "elo": 1498,
-      "ci": 5,
+      "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
@@ -41,25 +41,25 @@
     },
     {
       "rank": 4,
-      "name": "gemini-3.1-pro-preview",
-      "elo": 1492,
-      "ci": 4,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Google",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 5,
       "name": "claude-opus-4-7",
-      "elo": 1491,
+      "elo": 1492,
       "ci": 6,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 1
+    },
+    {
+      "rank": 5,
+      "name": "muse-spark",
+      "elo": 1491,
+      "ci": 6,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Meta",
+      "trend": "down",
+      "trend_delta": -5
     }
   ],
   "category_leaders": {
@@ -70,14 +70,14 @@
       "top_models": [
         {
           "rank": 1,
-          "name": "claude-opus-4-7-thinking",
-          "elo": 1503,
+          "name": "claude-opus-4-6-thinking",
+          "elo": 1502,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
-          "name": "claude-opus-4-6-thinking",
-          "elo": 1502,
+          "name": "claude-opus-4-7-thinking",
+          "elo": 1501,
           "organization": "Anthropic"
         },
         {
@@ -88,15 +88,15 @@
         },
         {
           "rank": 4,
-          "name": "gemini-3.1-pro-preview",
+          "name": "claude-opus-4-7",
           "elo": 1492,
-          "organization": "Google"
+          "organization": "Anthropic"
         },
         {
           "rank": 5,
-          "name": "claude-opus-4-7",
+          "name": "muse-spark",
           "elo": 1491,
-          "organization": "Anthropic"
+          "organization": "Meta"
         }
       ]
     },
@@ -108,19 +108,19 @@
         {
           "rank": 1,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1570,
+          "elo": 1566,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1560,
+          "elo": 1559,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1549,
+          "elo": 1547,
           "organization": "Anthropic"
         },
         {
@@ -132,7 +132,7 @@
         {
           "rank": 5,
           "name": "glm-5.1",
-          "elo": 1531,
+          "elo": 1532,
           "organization": "Z.ai"
         }
       ]
@@ -151,7 +151,7 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1301,
+          "elo": 1303,
           "organization": "Anthropic"
         },
         {
@@ -163,13 +163,13 @@
         {
           "rank": 4,
           "name": "muse-spark",
-          "elo": 1298,
+          "elo": 1299,
           "organization": "Meta"
         },
         {
           "rank": 5,
           "name": "claude-opus-4-6",
-          "elo": 1291,
+          "elo": 1292,
           "organization": "Anthropic"
         }
       ]
@@ -182,7 +182,7 @@
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1398,
+          "elo": 1393,
           "organization": "OpenAI"
         },
         {
@@ -200,7 +200,7 @@
         {
           "rank": 4,
           "name": "gpt-image-1.5-high-fidelity",
-          "elo": 1240,
+          "elo": 1241,
           "organization": "OpenAI"
         },
         {
@@ -220,20 +220,20 @@
     ],
     "datasets": [
       {
-        "name": "claude-opus-4-7-thinking",
+        "name": "claude-opus-4-6-thinking",
         "scores": [
-          1503,
-          1570,
-          1305
+          1502,
+          1547,
+          1300
         ],
         "color": "#6366f1"
       },
       {
-        "name": "claude-opus-4-6-thinking",
+        "name": "claude-opus-4-7-thinking",
         "scores": [
-          1502,
-          1549,
-          1300
+          1501,
+          1566,
+          1305
         ],
         "color": "#f43f5e"
       },
@@ -242,25 +242,25 @@
         "scores": [
           1498,
           1544,
-          1291
+          1292
         ],
         "color": "#10b981"
       },
       {
-        "name": "gemini-3.1-pro-preview",
+        "name": "claude-opus-4-7",
         "scores": [
           1492,
-          1452,
-          1277
+          1559,
+          1303
         ],
         "color": "#f59e0b"
       },
       {
-        "name": "claude-opus-4-7",
+        "name": "muse-spark",
         "scores": [
           1491,
-          1560,
-          1301
+          1509,
+          1299
         ],
         "color": "#8b5cf6"
       }
@@ -276,21 +276,10 @@
     ],
     "series": [
       {
-        "name": "claude-opus-4-7-thinking",
+        "name": "claude-opus-4-6-thinking",
         "color": "#6366f1",
         "data": [
-          1503,
-          1503,
-          1503,
-          1503,
-          1503
-        ]
-      },
-      {
-        "name": "claude-opus-4-6-thinking",
-        "color": "#0ea5e9",
-        "data": [
-          1503,
+          1502,
           1502,
           1502,
           1502,
@@ -298,12 +287,23 @@
         ]
       },
       {
+        "name": "claude-opus-4-7-thinking",
+        "color": "#0ea5e9",
+        "data": [
+          1503,
+          1503,
+          1503,
+          1503,
+          1501
+        ]
+      },
+      {
         "name": "claude-opus-4-6",
         "color": "#10b981",
         "data": [
-          1496,
           1497,
           1497,
+          1498,
           1498,
           1498
         ]
@@ -313,9 +313,14 @@
   "insights": {
     "seismic_movements": [
       {
-        "title": "Batalla Cerrada: claude-opus-4-7-thinking vs claude-opus-4-6-thinking",
-        "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±6, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "title": "Batalla Cerrada: claude-opus-4-6-thinking vs claude-opus-4-7-thinking",
+        "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
+      },
+      {
+        "title": "Movimiento Notable: muse-spark",
+        "content": "<strong>muse-spark</strong> bajó <strong>5 puntos Elo</strong> esta semana, señalando un cambio significativo en las preferencias de los evaluadores humanos.",
+        "accent_color": "emerald"
       }
     ],
     "open_source_leader": {
