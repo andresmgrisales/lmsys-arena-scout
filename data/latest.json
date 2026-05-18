@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-05-14T08:52:54.484374+00:00",
-    "report_date_label": "14 de Mayo, 2026",
+    "last_updated": "2026-05-18T09:04:10.231197+00:00",
+    "report_date_label": "18 de Mayo, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -10,7 +10,7 @@
       "rank": 1,
       "name": "claude-opus-4-6-thinking",
       "elo": 1502,
-      "ci": 5,
+      "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
@@ -20,13 +20,13 @@
     {
       "rank": 2,
       "name": "claude-opus-4-7-thinking",
-      "elo": 1501,
+      "elo": 1500,
       "ci": 6,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
       "trend": "down",
-      "trend_delta": -2
+      "trend_delta": -1
     },
     {
       "rank": 3,
@@ -47,19 +47,19 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
       "name": "muse-spark",
-      "elo": 1491,
+      "elo": 1490,
       "ci": 6,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Meta",
       "trend": "down",
-      "trend_delta": -5
+      "trend_delta": -1
     }
   ],
   "category_leaders": {
@@ -77,7 +77,7 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1501,
+          "elo": 1500,
           "organization": "Anthropic"
         },
         {
@@ -95,7 +95,7 @@
         {
           "rank": 5,
           "name": "muse-spark",
-          "elo": 1491,
+          "elo": 1490,
           "organization": "Meta"
         }
       ]
@@ -103,12 +103,12 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 77,
+      "total_models": 79,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1566,
+          "elo": 1567,
           "organization": "Anthropic"
         },
         {
@@ -120,13 +120,13 @@
         {
           "rank": 3,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1547,
+          "elo": 1546,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-6",
-          "elo": 1544,
+          "elo": 1541,
           "organization": "Anthropic"
         },
         {
@@ -223,7 +223,7 @@
         "name": "claude-opus-4-6-thinking",
         "scores": [
           1502,
-          1547,
+          1546,
           1300
         ],
         "color": "#6366f1"
@@ -231,8 +231,8 @@
       {
         "name": "claude-opus-4-7-thinking",
         "scores": [
-          1501,
-          1566,
+          1500,
+          1567,
           1305
         ],
         "color": "#f43f5e"
@@ -241,7 +241,7 @@
         "name": "claude-opus-4-6",
         "scores": [
           1498,
-          1544,
+          1541,
           1292
         ],
         "color": "#10b981"
@@ -258,7 +258,7 @@
       {
         "name": "muse-spark",
         "scores": [
-          1491,
+          1490,
           1509,
           1299
         ],
@@ -293,8 +293,8 @@
           1503,
           1503,
           1503,
-          1503,
-          1501
+          1501,
+          1500
         ]
       },
       {
@@ -302,7 +302,7 @@
         "color": "#10b981",
         "data": [
           1497,
-          1497,
+          1498,
           1498,
           1498,
           1498
@@ -314,13 +314,8 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-opus-4-6-thinking vs claude-opus-4-7-thinking",
-        "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>2 puntos</strong> de diferencia y un intervalo de confianza de ±4, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
-      },
-      {
-        "title": "Movimiento Notable: muse-spark",
-        "content": "<strong>muse-spark</strong> bajó <strong>5 puntos Elo</strong> esta semana, señalando un cambio significativo en las preferencias de los evaluadores humanos.",
-        "accent_color": "emerald"
       }
     ],
     "open_source_leader": {
