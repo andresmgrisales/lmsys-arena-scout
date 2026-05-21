@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-05-18T09:04:10.231197+00:00",
-    "report_date_label": "18 de Mayo, 2026",
+    "last_updated": "2026-05-21T09:02:08.640022+00:00",
+    "report_date_label": "21 de Mayo, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -25,8 +25,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 3,
@@ -53,7 +53,7 @@
     {
       "rank": 5,
       "name": "muse-spark",
-      "elo": 1490,
+      "elo": 1489,
       "ci": 6,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
@@ -66,7 +66,7 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 357,
+      "total_models": 360,
       "top_models": [
         {
           "rank": 1,
@@ -95,7 +95,7 @@
         {
           "rank": 5,
           "name": "muse-spark",
-          "elo": 1490,
+          "elo": 1489,
           "organization": "Meta"
         }
       ]
@@ -103,7 +103,7 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 79,
+      "total_models": 80,
       "top_models": [
         {
           "rank": 1,
@@ -114,19 +114,19 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1559,
+          "elo": 1560,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1546,
+          "elo": 1545,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-6",
-          "elo": 1541,
+          "elo": 1540,
           "organization": "Anthropic"
         },
         {
@@ -140,18 +140,18 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 123,
+      "total_models": 126,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1305,
+          "elo": 1306,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1303,
+          "elo": 1304,
           "organization": "Anthropic"
         },
         {
@@ -163,13 +163,13 @@
         {
           "rank": 4,
           "name": "muse-spark",
-          "elo": 1299,
+          "elo": 1296,
           "organization": "Meta"
         },
         {
           "rank": 5,
           "name": "claude-opus-4-6",
-          "elo": 1292,
+          "elo": 1293,
           "organization": "Anthropic"
         }
       ]
@@ -223,7 +223,7 @@
         "name": "claude-opus-4-6-thinking",
         "scores": [
           1502,
-          1546,
+          1545,
           1300
         ],
         "color": "#6366f1"
@@ -233,7 +233,7 @@
         "scores": [
           1500,
           1567,
-          1305
+          1306
         ],
         "color": "#f43f5e"
       },
@@ -241,8 +241,8 @@
         "name": "claude-opus-4-6",
         "scores": [
           1498,
-          1541,
-          1292
+          1540,
+          1293
         ],
         "color": "#10b981"
       },
@@ -250,17 +250,17 @@
         "name": "claude-opus-4-7",
         "scores": [
           1492,
-          1559,
-          1303
+          1560,
+          1304
         ],
         "color": "#f59e0b"
       },
       {
         "name": "muse-spark",
         "scores": [
-          1490,
+          1489,
           1509,
-          1299
+          1296
         ],
         "color": "#8b5cf6"
       }
@@ -292,8 +292,8 @@
         "data": [
           1503,
           1503,
-          1503,
           1501,
+          1500,
           1500
         ]
       },
@@ -301,7 +301,7 @@
         "name": "claude-opus-4-6",
         "color": "#10b981",
         "data": [
-          1497,
+          1498,
           1498,
           1498,
           1498,
