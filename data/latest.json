@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-05-21T09:02:08.640022+00:00",
-    "report_date_label": "21 de Mayo, 2026",
+    "last_updated": "2026-05-25T09:14:39.448732+00:00",
+    "report_date_label": "25 de Mayo, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -58,8 +58,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Meta",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     }
   ],
   "category_leaders": {
@@ -177,24 +177,24 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 60,
+      "total_models": 63,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1393,
+          "elo": 1389,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
-          "elo": 1268,
+          "elo": 1270,
           "organization": "Google"
         },
         {
           "rank": 3,
           "name": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
-          "elo": 1242,
+          "elo": 1243,
           "organization": "Google"
         },
         {
@@ -291,8 +291,8 @@
         "color": "#0ea5e9",
         "data": [
           1503,
-          1503,
           1501,
+          1500,
           1500,
           1500
         ]
