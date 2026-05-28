@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-05-25T09:14:39.448732+00:00",
-    "report_date_label": "25 de Mayo, 2026",
+    "last_updated": "2026-05-28T09:07:23.640111+00:00",
+    "report_date_label": "28 de Mayo, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -21,7 +21,7 @@
       "rank": 2,
       "name": "claude-opus-4-7-thinking",
       "elo": 1500,
-      "ci": 6,
+      "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
@@ -42,13 +42,13 @@
     {
       "rank": 4,
       "name": "claude-opus-4-7",
-      "elo": 1492,
-      "ci": 6,
+      "elo": 1494,
+      "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 2
     },
     {
       "rank": 5,
@@ -89,7 +89,7 @@
         {
           "rank": 4,
           "name": "claude-opus-4-7",
-          "elo": 1492,
+          "elo": 1494,
           "organization": "Anthropic"
         },
         {
@@ -103,7 +103,7 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 80,
+      "total_models": 81,
       "top_models": [
         {
           "rank": 1,
@@ -114,26 +114,26 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1560,
+          "elo": 1562,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1545,
+          "elo": 1542,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
-          "name": "claude-opus-4-6",
-          "elo": 1540,
-          "organization": "Anthropic"
+          "name": "qwen3.7-max-20260517",
+          "elo": 1541,
+          "organization": "Alibaba"
         },
         {
           "rank": 5,
-          "name": "glm-5.1",
-          "elo": 1532,
-          "organization": "Z.ai"
+          "name": "claude-opus-4-6",
+          "elo": 1538,
+          "organization": "Anthropic"
         }
       ]
     },
@@ -177,37 +177,37 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 63,
+      "total_models": 64,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1389,
+          "elo": 1388,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
-          "elo": 1270,
+          "elo": 1271,
           "organization": "Google"
         },
         {
           "rank": 3,
-          "name": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
-          "elo": 1243,
-          "organization": "Google"
+          "name": "mai-image-2.5-preview",
+          "elo": 1254,
+          "organization": "Microsoft AI"
         },
         {
           "rank": 4,
-          "name": "gpt-image-1.5-high-fidelity",
-          "elo": 1241,
-          "organization": "OpenAI"
+          "name": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
+          "elo": 1244,
+          "organization": "Google"
         },
         {
           "rank": 5,
-          "name": "gemini-3-pro-image-preview (nano-banana-pro)",
-          "elo": 1232,
-          "organization": "Google"
+          "name": "gpt-image-1.5-high-fidelity",
+          "elo": 1241,
+          "organization": "OpenAI"
         }
       ]
     }
@@ -223,7 +223,7 @@
         "name": "claude-opus-4-6-thinking",
         "scores": [
           1502,
-          1545,
+          1542,
           1300
         ],
         "color": "#6366f1"
@@ -241,7 +241,7 @@
         "name": "claude-opus-4-6",
         "scores": [
           1498,
-          1540,
+          1538,
           1293
         ],
         "color": "#10b981"
@@ -249,8 +249,8 @@
       {
         "name": "claude-opus-4-7",
         "scores": [
-          1492,
-          1560,
+          1494,
+          1562,
           1304
         ],
         "color": "#f59e0b"
@@ -259,7 +259,7 @@
         "name": "muse-spark",
         "scores": [
           1489,
-          1509,
+          1508,
           1296
         ],
         "color": "#8b5cf6"
@@ -290,8 +290,8 @@
         "name": "claude-opus-4-7-thinking",
         "color": "#0ea5e9",
         "data": [
-          1503,
           1501,
+          1500,
           1500,
           1500,
           1500
