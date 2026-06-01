@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-05-28T09:07:23.640111+00:00",
-    "report_date_label": "28 de Mayo, 2026",
+    "last_updated": "2026-06-01T09:44:21.074540+00:00",
+    "report_date_label": "1 de Junio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -47,8 +47,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 2
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
@@ -290,7 +290,7 @@
         "name": "claude-opus-4-7-thinking",
         "color": "#0ea5e9",
         "data": [
-          1501,
+          1500,
           1500,
           1500,
           1500,
