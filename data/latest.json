@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-06-04T09:14:43.943982+00:00",
-    "report_date_label": "4 de Junio, 2026",
+    "last_updated": "2026-06-08T09:29:34.910461+00:00",
+    "report_date_label": "8 de Junio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,7 +9,7 @@
     {
       "rank": 1,
       "name": "claude-opus-4-6-thinking",
-      "elo": 1503,
+      "elo": 1504,
       "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
@@ -20,13 +20,13 @@
     {
       "rank": 2,
       "name": "claude-opus-4-7-thinking",
-      "elo": 1499,
+      "elo": 1501,
       "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "up",
+      "trend_delta": 2
     },
     {
       "rank": 3,
@@ -42,13 +42,13 @@
     {
       "rank": 4,
       "name": "claude-opus-4-7",
-      "elo": 1494,
+      "elo": 1493,
       "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "down",
+      "trend_delta": -1
     },
     {
       "rank": 5,
@@ -66,18 +66,18 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 362,
+      "total_models": 365,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1503,
+          "elo": 1504,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1499,
+          "elo": 1501,
           "organization": "Anthropic"
         },
         {
@@ -89,7 +89,7 @@
         {
           "rank": 4,
           "name": "claude-opus-4-7",
-          "elo": 1494,
+          "elo": 1493,
           "organization": "Anthropic"
         },
         {
@@ -103,49 +103,49 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 82,
+      "total_models": 85,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1566,
+          "elo": 1567,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "claude-opus-4-7",
-          "elo": 1558,
+          "elo": 1557,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
-          "name": "claude-opus-4-6-thinking",
-          "elo": 1542,
+          "name": "claude-opus-4-8-thinking",
+          "elo": 1552,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
-          "name": "claude-opus-4-6",
-          "elo": 1537,
+          "name": "claude-opus-4-8",
+          "elo": 1545,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
-          "name": "qwen3.7-max-20260517",
-          "elo": 1536,
-          "organization": "Alibaba"
+          "name": "claude-opus-4-6-thinking",
+          "elo": 1543,
+          "organization": "Anthropic"
         }
       ]
     },
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 128,
+      "total_models": 130,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1309,
+          "elo": 1308,
           "organization": "Anthropic"
         },
         {
@@ -157,13 +157,13 @@
         {
           "rank": 3,
           "name": "claude-opus-4-7",
-          "elo": 1298,
+          "elo": 1300,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-6",
-          "elo": 1297,
+          "elo": 1296,
           "organization": "Anthropic"
         },
         {
@@ -177,18 +177,18 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 66,
+      "total_models": 70,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1384,
+          "elo": 1385,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "reve-2.0",
-          "elo": 1280,
+          "elo": 1273,
           "organization": "Reve"
         },
         {
@@ -200,7 +200,7 @@
         {
           "rank": 4,
           "name": "mai-image-2.5",
-          "elo": 1254,
+          "elo": 1253,
           "organization": "Microsoft AI"
         },
         {
@@ -222,8 +222,8 @@
       {
         "name": "claude-opus-4-6-thinking",
         "scores": [
-          1503,
-          1542,
+          1504,
+          1543,
           1303
         ],
         "color": "#6366f1"
@@ -231,9 +231,9 @@
       {
         "name": "claude-opus-4-7-thinking",
         "scores": [
-          1499,
-          1566,
-          1309
+          1501,
+          1567,
+          1308
         ],
         "color": "#f43f5e"
       },
@@ -241,17 +241,17 @@
         "name": "claude-opus-4-6",
         "scores": [
           1498,
-          1537,
-          1297
+          1538,
+          1296
         ],
         "color": "#10b981"
       },
       {
         "name": "claude-opus-4-7",
         "scores": [
-          1494,
-          1558,
-          1298
+          1493,
+          1557,
+          1300
         ],
         "color": "#f59e0b"
       },
@@ -282,8 +282,8 @@
           1502,
           1502,
           1502,
-          1502,
-          1503
+          1503,
+          1504
         ]
       },
       {
@@ -293,8 +293,8 @@
           1500,
           1500,
           1500,
-          1500,
-          1499
+          1499,
+          1501
         ]
       },
       {
@@ -314,7 +314,7 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-opus-4-6-thinking vs claude-opus-4-7-thinking",
-        "content": "Con solo <strong>4 puntos</strong> de diferencia y un intervalo de confianza de ±4, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>3 puntos</strong> de diferencia y un intervalo de confianza de ±4, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
     ],
