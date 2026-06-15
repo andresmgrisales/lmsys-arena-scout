@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-06-11T09:23:08.930806+00:00",
-    "report_date_label": "11 de Junio, 2026",
+    "last_updated": "2026-06-15T10:01:55.812250+00:00",
+    "report_date_label": "15 de Junio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -36,8 +36,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 4,
@@ -58,8 +58,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     }
   ],
   "category_leaders": {
@@ -291,8 +291,8 @@
         "color": "#0ea5e9",
         "data": [
           1502,
-          1502,
           1503,
+          1504,
           1504,
           1504
         ]
@@ -302,9 +302,9 @@
         "color": "#10b981",
         "data": [
           1500,
-          1500,
           1499,
           1501,
+          1502,
           1502
         ]
       }
