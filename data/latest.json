@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-06-18T09:25:45.318120+00:00",
-    "report_date_label": "18 de Junio, 2026",
+    "last_updated": "2026-06-22T09:55:45.418327+00:00",
+    "report_date_label": "22 de Junio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,8 +14,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -2
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
@@ -47,8 +47,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
@@ -58,8 +58,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     }
   ],
   "category_leaders": {
@@ -114,25 +114,25 @@
         {
           "rank": 2,
           "name": "glm-5.2 (max)",
-          "elo": 1595,
+          "elo": 1593,
           "organization": "Z.ai"
         },
         {
           "rank": 3,
-          "name": "claude-opus-4-7-thinking",
-          "elo": 1566,
+          "name": "claude-opus-4-8-thinking",
+          "elo": 1565,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
-          "name": "claude-opus-4-8-thinking",
-          "elo": 1561,
+          "name": "claude-opus-4-7-thinking",
+          "elo": 1563,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
           "name": "claude-opus-4-7",
-          "elo": 1556,
+          "elo": 1557,
           "organization": "Anthropic"
         }
       ]
@@ -232,7 +232,7 @@
         "name": "claude-opus-4-6-thinking",
         "scores": [
           1504,
-          1541,
+          1542,
           1301
         ],
         "color": "#f43f5e"
@@ -241,7 +241,7 @@
         "name": "claude-opus-4-7-thinking",
         "scores": [
           1502,
-          1566,
+          1563,
           1309
         ],
         "color": "#10b981"
@@ -259,7 +259,7 @@
         "name": "claude-opus-4-7",
         "scores": [
           1493,
-          1556,
+          1557,
           1301
         ],
         "color": "#8b5cf6"
@@ -282,7 +282,7 @@
           1510,
           1510,
           1510,
-          1510,
+          1508,
           1508
         ]
       },
@@ -290,7 +290,7 @@
         "name": "claude-opus-4-6-thinking",
         "color": "#0ea5e9",
         "data": [
-          1503,
+          1504,
           1504,
           1504,
           1504,
@@ -301,8 +301,8 @@
         "name": "claude-opus-4-7-thinking",
         "color": "#10b981",
         "data": [
-          1499,
           1501,
+          1502,
           1502,
           1502,
           1502
