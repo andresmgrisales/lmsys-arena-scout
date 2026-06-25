@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-06-22T09:55:45.418327+00:00",
-    "report_date_label": "22 de Junio, 2026",
+    "last_updated": "2026-06-25T08:59:55.472183+00:00",
+    "report_date_label": "25 de Junio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -281,7 +281,7 @@
         "data": [
           1510,
           1510,
-          1510,
+          1508,
           1508,
           1508
         ]
@@ -301,7 +301,7 @@
         "name": "claude-opus-4-7-thinking",
         "color": "#10b981",
         "data": [
-          1501,
+          1502,
           1502,
           1502,
           1502,
