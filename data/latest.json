@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-06-29T09:29:45.958530+00:00",
-    "report_date_label": "29 de Junio, 2026",
+    "last_updated": "2026-07-02T08:59:31.312063+00:00",
+    "report_date_label": "2 de Julio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -25,8 +25,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 3,
@@ -58,8 +58,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     }
   ],
   "category_leaders": {
@@ -177,7 +177,7 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 69,
+      "total_models": 70,
       "top_models": [
         {
           "rank": 1,
@@ -188,25 +188,25 @@
         {
           "rank": 2,
           "name": "reve-2.0",
-          "elo": 1275,
+          "elo": 1273,
           "organization": "Reve"
         },
         {
           "rank": 3,
           "name": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
-          "elo": 1269,
+          "elo": 1270,
           "organization": "Google"
         },
         {
           "rank": 4,
           "name": "mai-image-2.5",
-          "elo": 1256,
+          "elo": 1257,
           "organization": "Microsoft AI"
         },
         {
           "rank": 5,
-          "name": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
-          "elo": 1245,
+          "name": "gemini-3.1-flash-lite-image (nano-banana-2-lite)",
+          "elo": 1251,
           "organization": "Google"
         }
       ]
@@ -279,7 +279,7 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1510,
+          1508,
           1508,
           1508,
           1508,
@@ -293,7 +293,7 @@
           1504,
           1504,
           1504,
-          1504,
+          1503,
           1503
         ]
       },
