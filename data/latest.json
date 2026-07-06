@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-02T08:59:31.312063+00:00",
-    "report_date_label": "2 de Julio, 2026",
+    "last_updated": "2026-07-06T09:16:26.826559+00:00",
+    "report_date_label": "6 de Julio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,24 +9,24 @@
     {
       "rank": 1,
       "name": "claude-fable-5",
-      "elo": 1508,
+      "elo": 1509,
       "ci": 9,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 1
     },
     {
       "rank": 2,
       "name": "claude-opus-4-6-thinking",
-      "elo": 1503,
+      "elo": 1504,
       "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 1
     },
     {
       "rank": 3,
@@ -66,18 +66,18 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 368,
+      "total_models": 369,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1508,
+          "elo": 1509,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1503,
+          "elo": 1504,
           "organization": "Anthropic"
         },
         {
@@ -103,30 +103,30 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 90,
+      "total_models": 92,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1654,
+          "elo": 1653,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "glm-5.2 (max)",
-          "elo": 1593,
+          "elo": 1584,
           "organization": "Z.ai"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-8-thinking",
-          "elo": 1565,
+          "elo": 1561,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1563,
+          "elo": 1559,
           "organization": "Anthropic"
         },
         {
@@ -140,7 +140,7 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 131,
+      "total_models": 133,
       "top_models": [
         {
           "rank": 1,
@@ -151,18 +151,18 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1308,
+          "elo": 1307,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
-          "name": "claude-opus-4-6-thinking",
-          "elo": 1299,
+          "name": "claude-opus-4-7",
+          "elo": 1298,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
-          "name": "claude-opus-4-7",
+          "name": "claude-opus-4-6-thinking",
           "elo": 1298,
           "organization": "Anthropic"
         },
@@ -177,7 +177,7 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 70,
+      "total_models": 71,
       "top_models": [
         {
           "rank": 1,
@@ -188,7 +188,7 @@
         {
           "rank": 2,
           "name": "reve-2.0",
-          "elo": 1273,
+          "elo": 1272,
           "organization": "Reve"
         },
         {
@@ -206,7 +206,7 @@
         {
           "rank": 5,
           "name": "gemini-3.1-flash-lite-image (nano-banana-2-lite)",
-          "elo": 1251,
+          "elo": 1250,
           "organization": "Google"
         }
       ]
@@ -222,8 +222,8 @@
       {
         "name": "claude-fable-5",
         "scores": [
-          1508,
-          1654,
+          1509,
+          1653,
           1311
         ],
         "color": "#6366f1"
@@ -231,9 +231,9 @@
       {
         "name": "claude-opus-4-6-thinking",
         "scores": [
-          1503,
+          1504,
           1542,
-          1299
+          1298
         ],
         "color": "#f43f5e"
       },
@@ -241,8 +241,8 @@
         "name": "claude-opus-4-7-thinking",
         "scores": [
           1502,
-          1563,
-          1308
+          1559,
+          1307
         ],
         "color": "#10b981"
       },
@@ -250,7 +250,7 @@
         "name": "claude-opus-4-6",
         "scores": [
           1499,
-          1538,
+          1536,
           1297
         ],
         "color": "#f59e0b"
@@ -283,7 +283,7 @@
           1508,
           1508,
           1508,
-          1508
+          1509
         ]
       },
       {
@@ -292,9 +292,9 @@
         "data": [
           1504,
           1504,
-          1504,
           1503,
-          1503
+          1503,
+          1504
         ]
       },
       {
