@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-06T09:16:26.826559+00:00",
-    "report_date_label": "6 de Julio, 2026",
+    "last_updated": "2026-07-09T09:01:29.074508+00:00",
+    "report_date_label": "9 de Julio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,8 +14,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
@@ -25,8 +25,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 3,
@@ -177,37 +177,37 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 71,
+      "total_models": 72,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1386,
+          "elo": 1385,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
-          "name": "reve-2.0",
-          "elo": 1272,
-          "organization": "Reve"
+          "name": "muse-image",
+          "elo": 1280,
+          "organization": "Meta"
         },
         {
           "rank": 3,
+          "name": "reve-2.0",
+          "elo": 1271,
+          "organization": "Reve"
+        },
+        {
+          "rank": 4,
           "name": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
           "elo": 1270,
           "organization": "Google"
         },
         {
-          "rank": 4,
+          "rank": 5,
           "name": "mai-image-2.5",
           "elo": 1257,
           "organization": "Microsoft AI"
-        },
-        {
-          "rank": 5,
-          "name": "gemini-3.1-flash-lite-image (nano-banana-2-lite)",
-          "elo": 1250,
-          "organization": "Google"
         }
       ]
     }
@@ -282,7 +282,7 @@
           1508,
           1508,
           1508,
-          1508,
+          1509,
           1509
         ]
       },
@@ -291,9 +291,9 @@
         "color": "#0ea5e9",
         "data": [
           1504,
+          1503,
+          1503,
           1504,
-          1503,
-          1503,
           1504
         ]
       },
