@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-13T09:01:01.946699+00:00",
-    "report_date_label": "13 de Julio, 2026",
+    "last_updated": "2026-07-16T08:43:18.097464+00:00",
+    "report_date_label": "16 de Julio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,13 +9,13 @@
     {
       "rank": 1,
       "name": "claude-fable-5",
-      "elo": 1505,
-      "ci": 8,
+      "elo": 1508,
+      "ci": 7,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -4
+      "trend": "up",
+      "trend_delta": 3
     },
     {
       "rank": 2,
@@ -36,8 +36,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 4,
@@ -47,8 +47,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
@@ -71,7 +71,7 @@
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1505,
+          "elo": 1508,
           "organization": "Anthropic"
         },
         {
@@ -222,7 +222,7 @@
       {
         "name": "claude-fable-5",
         "scores": [
-          1505,
+          1508,
           1630,
           1318
         ],
@@ -280,10 +280,10 @@
         "color": "#6366f1",
         "data": [
           1508,
-          1508,
           1509,
           1509,
-          1505
+          1505,
+          1508
         ]
       },
       {
@@ -291,7 +291,7 @@
         "color": "#0ea5e9",
         "data": [
           1503,
-          1503,
+          1504,
           1504,
           1504,
           1504
@@ -304,7 +304,7 @@
           1502,
           1502,
           1502,
-          1502,
+          1503,
           1503
         ]
       }
@@ -314,13 +314,8 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-thinking",
-        "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±8, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>4 puntos</strong> de diferencia y un intervalo de confianza de ±7, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
-      },
-      {
-        "title": "Movimiento Notable: claude-fable-5",
-        "content": "<strong>claude-fable-5</strong> bajó <strong>4 puntos Elo</strong> esta semana, señalando un cambio significativo en las preferencias de los evaluadores humanos.",
-        "accent_color": "emerald"
       }
     ],
     "open_source_leader": {
