@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-16T08:43:18.097464+00:00",
-    "report_date_label": "16 de Julio, 2026",
+    "last_updated": "2026-07-20T08:59:35.966710+00:00",
+    "report_date_label": "20 de Julio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,13 +9,13 @@
     {
       "rank": 1,
       "name": "claude-fable-5",
-      "elo": 1508,
+      "elo": 1507,
       "ci": 7,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 3
+      "trend": "down",
+      "trend_delta": -1
     },
     {
       "rank": 2,
@@ -66,12 +66,12 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 374,
+      "total_models": 376,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1508,
+          "elo": 1507,
           "organization": "Anthropic"
         },
         {
@@ -103,36 +103,36 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 96,
+      "total_models": 99,
       "top_models": [
         {
           "rank": 1,
-          "name": "gpt-5.6-sol-xhigh (codex-harness)",
-          "elo": 1631,
-          "organization": "OpenAI"
+          "name": "kimi-k3",
+          "elo": 1679,
+          "organization": "Moonshot"
         },
         {
           "rank": 2,
           "name": "claude-fable-5",
-          "elo": 1630,
+          "elo": 1631,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
-          "name": "glm-5.2 (max)",
-          "elo": 1581,
-          "organization": "Z.ai"
+          "name": "gpt-5.6-sol-xhigh (codex-harness)",
+          "elo": 1618,
+          "organization": "OpenAI"
         },
         {
           "rank": 4,
-          "name": "claude-opus-4-8-thinking",
-          "elo": 1559,
-          "organization": "Anthropic"
+          "name": "glm-5.2 (max)",
+          "elo": 1587,
+          "organization": "Z.ai"
         },
         {
           "rank": 5,
-          "name": "claude-opus-4-7-thinking",
-          "elo": 1557,
+          "name": "claude-opus-4-8-thinking",
+          "elo": 1562,
           "organization": "Anthropic"
         }
       ]
@@ -222,8 +222,8 @@
       {
         "name": "claude-fable-5",
         "scores": [
-          1508,
-          1630,
+          1507,
+          1631,
           1318
         ],
         "color": "#6366f1"
@@ -241,7 +241,7 @@
         "name": "claude-opus-4-7-thinking",
         "scores": [
           1503,
-          1557,
+          1558,
           1304
         ],
         "color": "#10b981"
@@ -250,7 +250,7 @@
         "name": "claude-opus-4-6",
         "scores": [
           1498,
-          1535,
+          1536,
           1298
         ],
         "color": "#f59e0b"
@@ -279,18 +279,18 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1508,
           1509,
           1509,
           1505,
-          1508
+          1508,
+          1507
         ]
       },
       {
         "name": "claude-opus-4-6-thinking",
         "color": "#0ea5e9",
         "data": [
-          1503,
+          1504,
           1504,
           1504,
           1504,
@@ -303,7 +303,7 @@
         "data": [
           1502,
           1502,
-          1502,
+          1503,
           1503,
           1503
         ]
@@ -314,7 +314,7 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-thinking",
-        "content": "Con solo <strong>4 puntos</strong> de diferencia y un intervalo de confianza de ±7, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>3 puntos</strong> de diferencia y un intervalo de confianza de ±7, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
     ],
