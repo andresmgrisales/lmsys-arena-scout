@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-20T08:59:35.966710+00:00",
-    "report_date_label": "20 de Julio, 2026",
+    "last_updated": "2026-07-23T08:49:15.785361+00:00",
+    "report_date_label": "23 de Julio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -10,34 +10,34 @@
       "rank": 1,
       "name": "claude-fable-5",
       "elo": 1507,
-      "ci": 7,
+      "ci": 6,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "neutral",
+      "trend_delta": 0
+    },
+    {
+      "rank": 2,
+      "name": "claude-opus-4-6-thinking",
+      "elo": 1505,
+      "ci": 4,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "up",
+      "trend_delta": 1
+    },
+    {
+      "rank": 3,
+      "name": "claude-opus-4-7-thinking",
+      "elo": 1502,
+      "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
       "trend": "down",
       "trend_delta": -1
-    },
-    {
-      "rank": 2,
-      "name": "claude-opus-4-6-thinking",
-      "elo": 1504,
-      "ci": 4,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 3,
-      "name": "claude-opus-4-7-thinking",
-      "elo": 1503,
-      "ci": 4,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
     },
     {
       "rank": 4,
@@ -52,12 +52,12 @@
     },
     {
       "rank": 5,
-      "name": "claude-opus-4-7",
-      "elo": 1494,
-      "ci": 4,
+      "name": "muse-spark-1.1",
+      "elo": 1495,
+      "ci": 7,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
+      "organization": "Meta",
       "trend": "neutral",
       "trend_delta": 0
     }
@@ -66,7 +66,7 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 376,
+      "total_models": 378,
       "top_models": [
         {
           "rank": 1,
@@ -77,13 +77,13 @@
         {
           "rank": 2,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1504,
+          "elo": 1505,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1503,
+          "elo": 1502,
           "organization": "Anthropic"
         },
         {
@@ -94,45 +94,45 @@
         },
         {
           "rank": 5,
-          "name": "claude-opus-4-7",
-          "elo": 1494,
-          "organization": "Anthropic"
+          "name": "muse-spark-1.1",
+          "elo": 1495,
+          "organization": "Meta"
         }
       ]
     },
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 99,
+      "total_models": 101,
       "top_models": [
         {
           "rank": 1,
           "name": "kimi-k3",
-          "elo": 1679,
+          "elo": 1678,
           "organization": "Moonshot"
         },
         {
           "rank": 2,
           "name": "claude-fable-5",
-          "elo": 1631,
+          "elo": 1634,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "gpt-5.6-sol-xhigh (codex-harness)",
-          "elo": 1618,
+          "elo": 1630,
           "organization": "OpenAI"
         },
         {
           "rank": 4,
           "name": "glm-5.2 (max)",
-          "elo": 1587,
+          "elo": 1592,
           "organization": "Z.ai"
         },
         {
           "rank": 5,
           "name": "claude-opus-4-8-thinking",
-          "elo": 1562,
+          "elo": 1565,
           "organization": "Anthropic"
         }
       ]
@@ -151,7 +151,7 @@
         {
           "rank": 2,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1304,
+          "elo": 1306,
           "organization": "Anthropic"
         },
         {
@@ -163,13 +163,13 @@
         {
           "rank": 4,
           "name": "claude-opus-4-7",
-          "elo": 1299,
+          "elo": 1298,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
           "name": "claude-opus-4-6",
-          "elo": 1298,
+          "elo": 1295,
           "organization": "Anthropic"
         }
       ]
@@ -223,7 +223,7 @@
         "name": "claude-fable-5",
         "scores": [
           1507,
-          1631,
+          1634,
           1318
         ],
         "color": "#6366f1"
@@ -231,7 +231,7 @@
       {
         "name": "claude-opus-4-6-thinking",
         "scores": [
-          1504,
+          1505,
           1542,
           1299
         ],
@@ -240,9 +240,9 @@
       {
         "name": "claude-opus-4-7-thinking",
         "scores": [
-          1503,
-          1558,
-          1304
+          1502,
+          1559,
+          1306
         ],
         "color": "#10b981"
       },
@@ -251,16 +251,16 @@
         "scores": [
           1498,
           1536,
-          1298
+          1295
         ],
         "color": "#f59e0b"
       },
       {
-        "name": "claude-opus-4-7",
+        "name": "muse-spark-1.1",
         "scores": [
-          1494,
-          1555,
-          1299
+          1495,
+          1539,
+          null
         ],
         "color": "#8b5cf6"
       }
@@ -280,9 +280,9 @@
         "color": "#6366f1",
         "data": [
           1509,
-          1509,
           1505,
           1508,
+          1507,
           1507
         ]
       },
@@ -294,7 +294,7 @@
           1504,
           1504,
           1504,
-          1504
+          1505
         ]
       },
       {
@@ -302,10 +302,10 @@
         "color": "#10b981",
         "data": [
           1502,
-          1502,
           1503,
           1503,
-          1503
+          1503,
+          1502
         ]
       }
     ]
@@ -314,7 +314,7 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-thinking",
-        "content": "Con solo <strong>3 puntos</strong> de diferencia y un intervalo de confianza de ±7, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>2 puntos</strong> de diferencia y un intervalo de confianza de ±6, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
     ],
