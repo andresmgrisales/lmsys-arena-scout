@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-27T09:01:57.548543+00:00",
-    "report_date_label": "27 de Julio, 2026",
+    "last_updated": "2026-07-30T08:51:54.878544+00:00",
+    "report_date_label": "30 de Julio, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,8 +14,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
@@ -42,19 +42,19 @@
     {
       "rank": 4,
       "name": "claude-opus-4-6",
-      "elo": 1498,
+      "elo": 1497,
       "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "down",
+      "trend_delta": -1
     },
     {
       "rank": 5,
-      "name": "claude-opus-5-high",
+      "name": "claude-opus-5-max",
       "elo": 1495,
-      "ci": 8,
+      "ci": 12,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
@@ -66,7 +66,7 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 380,
+      "total_models": 381,
       "top_models": [
         {
           "rank": 1,
@@ -89,12 +89,12 @@
         {
           "rank": 4,
           "name": "claude-opus-4-6",
-          "elo": 1498,
+          "elo": 1497,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
-          "name": "claude-opus-5-high",
+          "name": "claude-opus-5-max",
           "elo": 1495,
           "organization": "Anthropic"
         }
@@ -103,37 +103,37 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 103,
+      "total_models": 104,
       "top_models": [
         {
           "rank": 1,
-          "name": "kimi-k3",
+          "name": "claude-opus-5-max",
+          "elo": 1712,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 2,
+          "name": "kimi-k3-max",
           "elo": 1682,
           "organization": "Moonshot"
         },
         {
-          "rank": 2,
-          "name": "claude-opus-5-high",
-          "elo": 1673,
-          "organization": "Anthropic"
-        },
-        {
           "rank": 3,
-          "name": "claude-fable-5",
-          "elo": 1629,
+          "name": "claude-opus-5-high",
+          "elo": 1669,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
-          "name": "gpt-5.6-sol-xhigh (codex-harness)",
-          "elo": 1625,
-          "organization": "OpenAI"
+          "name": "claude-fable-5",
+          "elo": 1628,
+          "organization": "Anthropic"
         },
         {
           "rank": 5,
-          "name": "glm-5.2 (max)",
-          "elo": 1587,
-          "organization": "Z.ai"
+          "name": "gpt-5.6-sol-xhigh (codex-harness)",
+          "elo": 1623,
+          "organization": "OpenAI"
         }
       ]
     },
@@ -223,7 +223,7 @@
         "name": "claude-fable-5",
         "scores": [
           1508,
-          1629,
+          1628,
           1318
         ],
         "color": "#6366f1"
@@ -241,7 +241,7 @@
         "name": "claude-opus-4-7-thinking",
         "scores": [
           1502,
-          1557,
+          1556,
           1304
         ],
         "color": "#10b981"
@@ -249,18 +249,18 @@
       {
         "name": "claude-opus-4-6",
         "scores": [
-          1498,
+          1497,
           1538,
           1294
         ],
         "color": "#f59e0b"
       },
       {
-        "name": "claude-opus-5-high",
+        "name": "claude-opus-5-max",
         "scores": [
           1495,
-          1673,
-          1299
+          1712,
+          null
         ],
         "color": "#8b5cf6"
       }
@@ -279,10 +279,10 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1505,
           1508,
           1507,
           1507,
+          1508,
           1508
         ]
       },
@@ -292,7 +292,7 @@
         "data": [
           1504,
           1504,
-          1504,
+          1505,
           1505,
           1505
         ]
@@ -303,7 +303,7 @@
         "data": [
           1503,
           1503,
-          1503,
+          1502,
           1502,
           1502
         ]
