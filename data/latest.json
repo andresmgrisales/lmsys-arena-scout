@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-30T08:51:54.878544+00:00",
-    "report_date_label": "30 de Julio, 2026",
+    "last_updated": "2026-08-03T09:01:19.258995+00:00",
+    "report_date_label": "3 de Agosto, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,13 +9,13 @@
     {
       "rank": 1,
       "name": "claude-fable-5",
-      "elo": 1508,
+      "elo": 1509,
       "ci": 6,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 1
     },
     {
       "rank": 2,
@@ -47,17 +47,17 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
-      "name": "claude-opus-5-max",
-      "elo": 1495,
-      "ci": 12,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
+      "name": "qwen3.8-max",
+      "elo": 1496,
+      "ci": 10,
+      "license_type": "open",
+      "license_label": "Abierto (Proprietary)",
+      "organization": "Alibaba",
       "trend": "neutral",
       "trend_delta": 0
     }
@@ -66,12 +66,12 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 381,
+      "total_models": 385,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1508,
+          "elo": 1509,
           "organization": "Anthropic"
         },
         {
@@ -94,27 +94,27 @@
         },
         {
           "rank": 5,
-          "name": "claude-opus-5-max",
-          "elo": 1495,
-          "organization": "Anthropic"
+          "name": "qwen3.8-max",
+          "elo": 1496,
+          "organization": "Alibaba"
         }
       ]
     },
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 104,
+      "total_models": 109,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-5-max",
-          "elo": 1712,
+          "elo": 1705,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "kimi-k3-max",
-          "elo": 1682,
+          "elo": 1676,
           "organization": "Moonshot"
         },
         {
@@ -125,22 +125,22 @@
         },
         {
           "rank": 4,
-          "name": "claude-fable-5",
-          "elo": 1628,
-          "organization": "Anthropic"
+          "name": "qwen3.8-max",
+          "elo": 1668,
+          "organization": "Alibaba"
         },
         {
           "rank": 5,
-          "name": "gpt-5.6-sol-xhigh (codex-harness)",
-          "elo": 1623,
-          "organization": "OpenAI"
+          "name": "claude-fable-5",
+          "elo": 1630,
+          "organization": "Anthropic"
         }
       ]
     },
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 140,
+      "total_models": 144,
       "top_models": [
         {
           "rank": 1,
@@ -150,26 +150,26 @@
         },
         {
           "rank": 2,
-          "name": "claude-opus-4-7-thinking",
-          "elo": 1304,
-          "organization": "Anthropic"
+          "name": "qwen3.8-max",
+          "elo": 1305,
+          "organization": "Alibaba"
         },
         {
           "rank": 3,
-          "name": "gemini-3.6-flash",
-          "elo": 1301,
-          "organization": "Google"
+          "name": "claude-opus-4-7-thinking",
+          "elo": 1303,
+          "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1300,
+          "elo": 1299,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
-          "name": "claude-opus-5-high",
-          "elo": 1299,
+          "name": "claude-opus-4-7",
+          "elo": 1298,
           "organization": "Anthropic"
         }
       ]
@@ -182,31 +182,31 @@
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1385,
+          "elo": 1381,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "reve-2.1",
-          "elo": 1302,
+          "elo": 1300,
           "organization": "Reve"
         },
         {
           "rank": 3,
           "name": "muse-image",
-          "elo": 1280,
+          "elo": 1281,
           "organization": "Meta"
         },
         {
           "rank": 4,
           "name": "reve-2.0",
-          "elo": 1271,
+          "elo": 1270,
           "organization": "Reve"
         },
         {
           "rank": 5,
           "name": "gemini-3.1-flash-image (nano-banana-2) [web-search]",
-          "elo": 1261,
+          "elo": 1263,
           "organization": "Google"
         }
       ]
@@ -222,8 +222,8 @@
       {
         "name": "claude-fable-5",
         "scores": [
-          1508,
-          1628,
+          1509,
+          1630,
           1318
         ],
         "color": "#6366f1"
@@ -232,8 +232,8 @@
         "name": "claude-opus-4-6-thinking",
         "scores": [
           1505,
-          1546,
-          1300
+          1545,
+          1299
         ],
         "color": "#f43f5e"
       },
@@ -241,8 +241,8 @@
         "name": "claude-opus-4-7-thinking",
         "scores": [
           1502,
-          1556,
-          1304
+          1557,
+          1303
         ],
         "color": "#10b981"
       },
@@ -256,11 +256,11 @@
         "color": "#f59e0b"
       },
       {
-        "name": "claude-opus-5-max",
+        "name": "qwen3.8-max",
         "scores": [
-          1495,
-          1712,
-          null
+          1496,
+          1668,
+          1305
         ],
         "color": "#8b5cf6"
       }
@@ -279,11 +279,11 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1508,
           1507,
           1507,
           1508,
-          1508
+          1508,
+          1509
         ]
       },
       {
@@ -291,7 +291,7 @@
         "color": "#0ea5e9",
         "data": [
           1504,
-          1504,
+          1505,
           1505,
           1505,
           1505
@@ -302,7 +302,7 @@
         "color": "#10b981",
         "data": [
           1503,
-          1503,
+          1502,
           1502,
           1502,
           1502
@@ -314,19 +314,19 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-thinking",
-        "content": "Con solo <strong>3 puntos</strong> de diferencia y un intervalo de confianza de ±6, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>4 puntos</strong> de diferencia y un intervalo de confianza de ±6, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
     ],
     "open_source_leader": {
-      "name": "N/A",
-      "organization": "N/A",
-      "license": "N/A",
-      "elo": 0,
-      "gap_to_frontier": 0,
-      "gap_percentage": 0,
-      "description": "No se encontraron modelos open source en el ranking.",
-      "gap_note": ""
+      "name": "qwen3.8-max",
+      "organization": "Alibaba",
+      "license": "Abierto (Proprietary)",
+      "elo": 1496,
+      "gap_to_frontier": 13,
+      "gap_percentage": 99,
+      "description": "<strong>qwen3.8-max</strong> lidera el segmento open source con <strong>1496 Elo</strong>, a solo 13 puntos de la frontera propietaria. La brecha continúa estrechándose semana tras semana.",
+      "gap_note": "La brecha actual de 13 puntos está dentro del margen de error combinado, sugiriendo convergencia entre modelos abiertos y propietarios."
     },
     "expert_analysis": {
       "coding": {
