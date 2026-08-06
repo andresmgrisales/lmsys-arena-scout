@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-08-03T09:01:19.258995+00:00",
-    "report_date_label": "3 de Agosto, 2026",
+    "last_updated": "2026-08-06T08:52:54.880683+00:00",
+    "report_date_label": "6 de Agosto, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,8 +14,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
@@ -103,7 +103,7 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 109,
+      "total_models": 110,
       "top_models": [
         {
           "rank": 1,
@@ -140,7 +140,7 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 144,
+      "total_models": 145,
       "top_models": [
         {
           "rank": 1,
@@ -177,24 +177,24 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 74,
+      "total_models": 75,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1381,
+          "elo": 1380,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "reve-2.1",
-          "elo": 1300,
+          "elo": 1301,
           "organization": "Reve"
         },
         {
           "rank": 3,
           "name": "muse-image",
-          "elo": 1281,
+          "elo": 1282,
           "organization": "Meta"
         },
         {
@@ -205,9 +205,9 @@
         },
         {
           "rank": 5,
-          "name": "gemini-3.1-flash-image (nano-banana-2) [web-search]",
+          "name": "qwen-image-3.0-pro",
           "elo": 1263,
-          "organization": "Google"
+          "organization": "Alibaba"
         }
       ]
     }
@@ -280,9 +280,9 @@
         "color": "#6366f1",
         "data": [
           1507,
-          1507,
           1508,
           1508,
+          1509,
           1509
         ]
       },
@@ -290,7 +290,7 @@
         "name": "claude-opus-4-6-thinking",
         "color": "#0ea5e9",
         "data": [
-          1504,
+          1505,
           1505,
           1505,
           1505,
@@ -301,7 +301,7 @@
         "name": "claude-opus-4-7-thinking",
         "color": "#10b981",
         "data": [
-          1503,
+          1502,
           1502,
           1502,
           1502,
