@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-08-06T08:52:54.880683+00:00",
-    "report_date_label": "6 de Agosto, 2026",
+    "last_updated": "2026-08-10T09:04:29.145713+00:00",
+    "report_date_label": "10 de Agosto, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,13 +9,13 @@
     {
       "rank": 1,
       "name": "claude-fable-5",
-      "elo": 1509,
+      "elo": 1507,
       "ci": 6,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "down",
+      "trend_delta": -2
     },
     {
       "rank": 2,
@@ -41,23 +41,23 @@
     },
     {
       "rank": 4,
-      "name": "claude-opus-4-6",
-      "elo": 1497,
-      "ci": 4,
+      "name": "muse-spark-1.2 (xHigh)",
+      "elo": 1498,
+      "ci": 13,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
+      "organization": "Meta",
       "trend": "neutral",
       "trend_delta": 0
     },
     {
       "rank": 5,
-      "name": "qwen3.8-max",
-      "elo": 1496,
-      "ci": 10,
-      "license_type": "open",
-      "license_label": "Abierto (Proprietary)",
-      "organization": "Alibaba",
+      "name": "claude-opus-4-6",
+      "elo": 1497,
+      "ci": 3,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
       "trend": "neutral",
       "trend_delta": 0
     }
@@ -66,12 +66,12 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 385,
+      "total_models": 386,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1509,
+          "elo": 1507,
           "organization": "Anthropic"
         },
         {
@@ -88,45 +88,45 @@
         },
         {
           "rank": 4,
-          "name": "claude-opus-4-6",
-          "elo": 1497,
-          "organization": "Anthropic"
+          "name": "muse-spark-1.2 (xHigh)",
+          "elo": 1498,
+          "organization": "Meta"
         },
         {
           "rank": 5,
-          "name": "qwen3.8-max",
-          "elo": 1496,
-          "organization": "Alibaba"
+          "name": "claude-opus-4-6",
+          "elo": 1497,
+          "organization": "Anthropic"
         }
       ]
     },
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 110,
+      "total_models": 111,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-5-max",
-          "elo": 1705,
+          "elo": 1686,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "kimi-k3-max",
-          "elo": 1676,
+          "elo": 1675,
           "organization": "Moonshot"
         },
         {
           "rank": 3,
           "name": "claude-opus-5-high",
-          "elo": 1669,
+          "elo": 1670,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "qwen3.8-max",
-          "elo": 1668,
+          "elo": 1667,
           "organization": "Alibaba"
         },
         {
@@ -145,31 +145,31 @@
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1318,
+          "elo": 1315,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
           "name": "qwen3.8-max",
-          "elo": 1305,
+          "elo": 1301,
           "organization": "Alibaba"
         },
         {
           "rank": 3,
           "name": "claude-opus-4-7-thinking",
-          "elo": 1303,
+          "elo": 1301,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "claude-opus-4-6-thinking",
-          "elo": 1299,
+          "elo": 1300,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
           "name": "claude-opus-4-7",
-          "elo": 1298,
+          "elo": 1299,
           "organization": "Anthropic"
         }
       ]
@@ -177,7 +177,7 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 75,
+      "total_models": 76,
       "top_models": [
         {
           "rank": 1,
@@ -187,27 +187,27 @@
         },
         {
           "rank": 2,
-          "name": "reve-2.1",
-          "elo": 1301,
-          "organization": "Reve"
+          "name": "grok-imagine-image-2.0 (low)",
+          "elo": 1320,
+          "organization": "SpaceXAI"
         },
         {
           "rank": 3,
-          "name": "muse-image",
-          "elo": 1282,
-          "organization": "Meta"
-        },
-        {
-          "rank": 4,
-          "name": "reve-2.0",
-          "elo": 1270,
+          "name": "reve-2.1",
+          "elo": 1302,
           "organization": "Reve"
         },
         {
+          "rank": 4,
+          "name": "muse-image",
+          "elo": 1283,
+          "organization": "Meta"
+        },
+        {
           "rank": 5,
-          "name": "qwen-image-3.0-pro",
-          "elo": 1263,
-          "organization": "Alibaba"
+          "name": "reve-2.0",
+          "elo": 1270,
+          "organization": "Reve"
         }
       ]
     }
@@ -222,9 +222,9 @@
       {
         "name": "claude-fable-5",
         "scores": [
-          1509,
+          1507,
           1630,
-          1318
+          1315
         ],
         "color": "#6366f1"
       },
@@ -233,7 +233,7 @@
         "scores": [
           1505,
           1545,
-          1299
+          1300
         ],
         "color": "#f43f5e"
       },
@@ -242,25 +242,25 @@
         "scores": [
           1502,
           1557,
-          1303
+          1301
         ],
         "color": "#10b981"
+      },
+      {
+        "name": "muse-spark-1.2 (xHigh)",
+        "scores": [
+          1498,
+          1544,
+          1290
+        ],
+        "color": "#f59e0b"
       },
       {
         "name": "claude-opus-4-6",
         "scores": [
           1497,
           1538,
-          1294
-        ],
-        "color": "#f59e0b"
-      },
-      {
-        "name": "qwen3.8-max",
-        "scores": [
-          1496,
-          1668,
-          1305
+          1293
         ],
         "color": "#8b5cf6"
       }
@@ -279,11 +279,11 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1507,
           1508,
           1508,
           1509,
-          1509
+          1509,
+          1507
         ]
       },
       {
@@ -314,19 +314,19 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-thinking",
-        "content": "Con solo <strong>4 puntos</strong> de diferencia y un intervalo de confianza de ±6, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>2 puntos</strong> de diferencia y un intervalo de confianza de ±6, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
     ],
     "open_source_leader": {
-      "name": "qwen3.8-max",
-      "organization": "Alibaba",
-      "license": "Abierto (Proprietary)",
-      "elo": 1496,
-      "gap_to_frontier": 13,
-      "gap_percentage": 99,
-      "description": "<strong>qwen3.8-max</strong> lidera el segmento open source con <strong>1496 Elo</strong>, a solo 13 puntos de la frontera propietaria. La brecha continúa estrechándose semana tras semana.",
-      "gap_note": "La brecha actual de 13 puntos está dentro del margen de error combinado, sugiriendo convergencia entre modelos abiertos y propietarios."
+      "name": "N/A",
+      "organization": "N/A",
+      "license": "N/A",
+      "elo": 0,
+      "gap_to_frontier": 0,
+      "gap_percentage": 0,
+      "description": "No se encontraron modelos open source en el ranking.",
+      "gap_note": ""
     },
     "expert_analysis": {
       "coding": {
