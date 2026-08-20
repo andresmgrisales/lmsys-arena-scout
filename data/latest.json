@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-08-17T08:28:58.083589+00:00",
-    "report_date_label": "17 de Agosto, 2026",
+    "last_updated": "2026-08-20T08:09:25.464239+00:00",
+    "report_date_label": "20 de Agosto, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,13 +9,13 @@
     {
       "rank": 1,
       "name": "claude-fable-5",
-      "elo": 1506,
+      "elo": 1507,
       "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 1
     },
     {
       "rank": 2,
@@ -66,12 +66,12 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 391,
+      "total_models": 393,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1506,
+          "elo": 1507,
           "organization": "Anthropic"
         },
         {
@@ -103,12 +103,12 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 115,
+      "total_models": 117,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-opus-5-max",
-          "elo": 1692,
+          "elo": 1691,
           "organization": "Anthropic"
         },
         {
@@ -120,19 +120,19 @@
         {
           "rank": 3,
           "name": "qwen3.8-max",
-          "elo": 1667,
+          "elo": 1669,
           "organization": "Alibaba"
         },
         {
           "rank": 4,
           "name": "claude-opus-5-high",
-          "elo": 1663,
+          "elo": 1662,
           "organization": "Anthropic"
         },
         {
           "rank": 5,
           "name": "grok-4.6-high",
-          "elo": 1631,
+          "elo": 1629,
           "organization": "SpaceXAI"
         }
       ]
@@ -140,7 +140,7 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 145,
+      "total_models": 146,
       "top_models": [
         {
           "rank": 1,
@@ -177,7 +177,7 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 77,
+      "total_models": 76,
       "top_models": [
         {
           "rank": 1,
@@ -222,8 +222,8 @@
       {
         "name": "claude-fable-5",
         "scores": [
-          1506,
-          1627,
+          1507,
+          1626,
           1315
         ],
         "color": "#6366f1"
@@ -232,7 +232,7 @@
         "name": "claude-opus-4-6-high",
         "scores": [
           1505,
-          1545,
+          1546,
           1300
         ],
         "color": "#f43f5e"
@@ -250,7 +250,7 @@
         "name": "muse-spark-1.2 (xHigh)",
         "scores": [
           1498,
-          1535,
+          1534,
           1290
         ],
         "color": "#f59e0b"
@@ -280,10 +280,10 @@
         "color": "#6366f1",
         "data": [
           1509,
-          1509,
           1507,
           1506,
-          1506
+          1506,
+          1507
         ]
       },
       {
@@ -314,7 +314,7 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-high",
-        "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>2 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
     ],
