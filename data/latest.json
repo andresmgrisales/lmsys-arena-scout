@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-08-24T08:12:36.720871+00:00",
-    "report_date_label": "24 de Agosto, 2026",
+    "last_updated": "2026-08-27T11:17:07.359957+00:00",
+    "report_date_label": "27 de Agosto, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,8 +14,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
@@ -25,8 +25,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 3,
@@ -103,7 +103,7 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 118,
+      "total_models": 120,
       "top_models": [
         {
           "rank": 1,
@@ -131,9 +131,9 @@
         },
         {
           "rank": 5,
-          "name": "grok-4.6-high",
-          "elo": 1629,
-          "organization": "SpaceXAI"
+          "name": "glm-5.3-flash",
+          "elo": 1634,
+          "organization": "Z.ai"
         }
       ]
     },
@@ -182,13 +182,13 @@
         {
           "rank": 1,
           "name": "gpt-image-2 (medium)",
-          "elo": 1381,
+          "elo": 1382,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "mai-image-2.6-preview",
-          "elo": 1336,
+          "elo": 1331,
           "organization": "Microsoft AI"
         },
         {
@@ -206,7 +206,7 @@
         {
           "rank": 5,
           "name": "muse-image",
-          "elo": 1282,
+          "elo": 1281,
           "organization": "Meta"
         }
       ]
@@ -279,10 +279,10 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1507,
           1506,
           1506,
           1507,
+          1508,
           1508
         ]
       },
@@ -293,7 +293,7 @@
           1505,
           1505,
           1505,
-          1505,
+          1504,
           1504
         ]
       },
