@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-08-31T08:03:28.588628+00:00",
-    "report_date_label": "31 de Agosto, 2026",
+    "last_updated": "2026-09-03T08:02:59.473143+00:00",
+    "report_date_label": "3 de Septiembre, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,8 +14,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
@@ -25,11 +25,22 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 3,
+      "name": "claude-fable-5.1-max",
+      "elo": 1504,
+      "ci": 11,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "neutral",
+      "trend_delta": 0
+    },
+    {
+      "rank": 4,
       "name": "claude-opus-4-7-high",
       "elo": 1502,
       "ci": 4,
@@ -40,33 +51,22 @@
       "trend_delta": 0
     },
     {
-      "rank": 4,
+      "rank": 5,
       "name": "muse-spark-1.2 (xHigh)",
-      "elo": 1498,
+      "elo": 1499,
       "ci": 10,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Meta",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 5,
-      "name": "claude-opus-4-6",
-      "elo": 1497,
-      "ci": 3,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 1
     }
   ],
   "category_leaders": {
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 395,
+      "total_models": 400,
       "top_models": [
         {
           "rank": 1,
@@ -82,58 +82,58 @@
         },
         {
           "rank": 3,
+          "name": "claude-fable-5.1-max",
+          "elo": 1504,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 4,
           "name": "claude-opus-4-7-high",
           "elo": 1502,
           "organization": "Anthropic"
         },
         {
-          "rank": 4,
-          "name": "muse-spark-1.2 (xHigh)",
-          "elo": 1498,
-          "organization": "Meta"
-        },
-        {
           "rank": 5,
-          "name": "claude-opus-4-6",
-          "elo": 1497,
-          "organization": "Anthropic"
+          "name": "muse-spark-1.2 (xHigh)",
+          "elo": 1499,
+          "organization": "Meta"
         }
       ]
     },
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 121,
+      "total_models": 124,
       "top_models": [
         {
           "rank": 1,
-          "name": "claude-opus-5-max",
-          "elo": 1688,
+          "name": "claude-fable-5.1-max",
+          "elo": 1765,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
+          "name": "qwen3.8-max-0902",
+          "elo": 1688,
+          "organization": "Alibaba"
+        },
+        {
+          "rank": 3,
+          "name": "claude-opus-5-max",
+          "elo": 1687,
+          "organization": "Anthropic"
+        },
+        {
+          "rank": 4,
           "name": "kimi-k3-max",
           "elo": 1674,
           "organization": "Moonshot"
         },
         {
-          "rank": 3,
+          "rank": 5,
           "name": "qwen3.8-max",
           "elo": 1669,
           "organization": "Alibaba"
-        },
-        {
-          "rank": 4,
-          "name": "claude-opus-5-high",
-          "elo": 1661,
-          "organization": "Anthropic"
-        },
-        {
-          "rank": 5,
-          "name": "hy4-preview",
-          "elo": 1631,
-          "organization": "Tencent"
         }
       ]
     },
@@ -238,29 +238,29 @@
         "color": "#f43f5e"
       },
       {
+        "name": "claude-fable-5.1-max",
+        "scores": [
+          1504,
+          1765,
+          null
+        ],
+        "color": "#10b981"
+      },
+      {
         "name": "claude-opus-4-7-high",
         "scores": [
           1502,
           1557,
           1301
         ],
-        "color": "#10b981"
+        "color": "#f59e0b"
       },
       {
         "name": "muse-spark-1.2 (xHigh)",
         "scores": [
-          1498,
+          1499,
           1534,
           1292
-        ],
-        "color": "#f59e0b"
-      },
-      {
-        "name": "claude-opus-4-6",
-        "scores": [
-          1497,
-          1536,
-          1293
         ],
         "color": "#8b5cf6"
       }
@@ -279,10 +279,10 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1506,
           1507,
           1508,
           1508,
+          1507,
           1507
         ]
       },
@@ -291,21 +291,21 @@
         "color": "#0ea5e9",
         "data": [
           1505,
+          1504,
+          1504,
           1505,
-          1504,
-          1504,
           1505
         ]
       },
       {
-        "name": "claude-opus-4-7-high",
+        "name": "claude-fable-5.1-max",
         "color": "#10b981",
         "data": [
-          1502,
-          1502,
-          1502,
-          1502,
-          1502
+          1504,
+          1504,
+          1504,
+          1504,
+          1504
         ]
       }
     ]
