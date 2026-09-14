@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-09-10T08:02:54.015868+00:00",
-    "report_date_label": "10 de Septiembre, 2026",
+    "last_updated": "2026-09-14T08:03:25.345002+00:00",
+    "report_date_label": "14 de Septiembre, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -9,13 +9,13 @@
     {
       "rank": 1,
       "name": "claude-fable-5",
-      "elo": 1507,
+      "elo": 1506,
       "ci": 5,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "down",
+      "trend_delta": -1
     },
     {
       "rank": 2,
@@ -30,17 +30,6 @@
     },
     {
       "rank": 3,
-      "name": "claude-fable-5.1-max",
-      "elo": 1504,
-      "ci": 11,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 4,
       "name": "claude-opus-4-7-high",
       "elo": 1502,
       "ci": 4,
@@ -51,27 +40,38 @@
       "trend_delta": 0
     },
     {
-      "rank": 5,
+      "rank": 4,
       "name": "muse-spark-1.2 (xHigh)",
-      "elo": 1499,
-      "ci": 10,
+      "elo": 1500,
+      "ci": 11,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Meta",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "up",
+      "trend_delta": 1
+    },
+    {
+      "rank": 5,
+      "name": "claude-fable-5.1-max",
+      "elo": 1498,
+      "ci": 8,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "down",
+      "trend_delta": -6
     }
   ],
   "category_leaders": {
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 400,
+      "total_models": 402,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1507,
+          "elo": 1506,
           "organization": "Anthropic"
         },
         {
@@ -82,51 +82,51 @@
         },
         {
           "rank": 3,
-          "name": "claude-fable-5.1-max",
-          "elo": 1504,
-          "organization": "Anthropic"
-        },
-        {
-          "rank": 4,
           "name": "claude-opus-4-7-high",
           "elo": 1502,
           "organization": "Anthropic"
         },
         {
-          "rank": 5,
+          "rank": 4,
           "name": "muse-spark-1.2 (xHigh)",
-          "elo": 1499,
+          "elo": 1500,
           "organization": "Meta"
+        },
+        {
+          "rank": 5,
+          "name": "claude-fable-5.1-max",
+          "elo": 1498,
+          "organization": "Anthropic"
         }
       ]
     },
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 127,
+      "total_models": 128,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-6-astra-max",
-          "elo": 1796,
+          "elo": 1800,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "claude-fable-5.1-max",
-          "elo": 1764,
+          "elo": 1758,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
           "name": "claude-opus-5-max",
-          "elo": 1688,
+          "elo": 1687,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
           "name": "qwen3.8-max-0902",
-          "elo": 1685,
+          "elo": 1681,
           "organization": "Alibaba"
         },
         {
@@ -140,30 +140,30 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 148,
+      "total_models": 152,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5",
-          "elo": 1313,
+          "elo": 1310,
           "organization": "Anthropic"
         },
         {
           "rank": 2,
+          "name": "qwen3.8-max",
+          "elo": 1302,
+          "organization": "Alibaba"
+        },
+        {
+          "rank": 3,
           "name": "claude-opus-4-7-high",
           "elo": 1301,
           "organization": "Anthropic"
         },
         {
-          "rank": 3,
-          "name": "qwen3.8-max",
-          "elo": 1300,
-          "organization": "Alibaba"
-        },
-        {
           "rank": 4,
           "name": "claude-opus-4-7",
-          "elo": 1299,
+          "elo": 1300,
           "organization": "Anthropic"
         },
         {
@@ -222,9 +222,9 @@
       {
         "name": "claude-fable-5",
         "scores": [
-          1507,
+          1506,
           1628,
-          1313
+          1310
         ],
         "color": "#6366f1"
       },
@@ -232,19 +232,10 @@
         "name": "claude-opus-4-6-high",
         "scores": [
           1505,
-          1546,
+          1547,
           1299
         ],
         "color": "#f43f5e"
-      },
-      {
-        "name": "claude-fable-5.1-max",
-        "scores": [
-          1504,
-          1764,
-          null
-        ],
-        "color": "#10b981"
       },
       {
         "name": "claude-opus-4-7-high",
@@ -253,14 +244,23 @@
           1555,
           1301
         ],
-        "color": "#f59e0b"
+        "color": "#10b981"
       },
       {
         "name": "muse-spark-1.2 (xHigh)",
         "scores": [
-          1499,
+          1500,
           1534,
           1292
+        ],
+        "color": "#f59e0b"
+      },
+      {
+        "name": "claude-fable-5.1-max",
+        "scores": [
+          1498,
+          1758,
+          1289
         ],
         "color": "#8b5cf6"
       }
@@ -279,18 +279,18 @@
         "name": "claude-fable-5",
         "color": "#6366f1",
         "data": [
-          1508,
           1507,
           1507,
           1507,
-          1507
+          1507,
+          1506
         ]
       },
       {
         "name": "claude-opus-4-6-high",
         "color": "#0ea5e9",
         "data": [
-          1504,
+          1505,
           1505,
           1505,
           1505,
@@ -298,14 +298,14 @@
         ]
       },
       {
-        "name": "claude-fable-5.1-max",
+        "name": "claude-opus-4-7-high",
         "color": "#10b981",
         "data": [
-          1504,
-          1504,
-          1504,
-          1504,
-          1504
+          1502,
+          1502,
+          1502,
+          1502,
+          1502
         ]
       }
     ]
@@ -314,8 +314,13 @@
     "seismic_movements": [
       {
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-high",
-        "content": "Con solo <strong>2 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
+        "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
+      },
+      {
+        "title": "Movimiento Notable: claude-fable-5.1-max",
+        "content": "<strong>claude-fable-5.1-max</strong> bajó <strong>6 puntos Elo</strong> esta semana, señalando un cambio significativo en las preferencias de los evaluadores humanos.",
+        "accent_color": "emerald"
       }
     ],
     "open_source_leader": {
