@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-09-14T08:03:25.345002+00:00",
-    "report_date_label": "14 de Septiembre, 2026",
+    "last_updated": "2026-09-17T08:03:12.279200+00:00",
+    "report_date_label": "17 de Septiembre, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -14,8 +14,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 2,
@@ -47,8 +47,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Meta",
-      "trend": "up",
-      "trend_delta": 1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 5,
@@ -58,8 +58,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -6
+      "trend": "neutral",
+      "trend_delta": 0
     }
   ],
   "category_leaders": {
@@ -282,7 +282,7 @@
           1507,
           1507,
           1507,
-          1507,
+          1506,
           1506
         ]
       },
@@ -316,11 +316,6 @@
         "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-high",
         "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
-      },
-      {
-        "title": "Movimiento Notable: claude-fable-5.1-max",
-        "content": "<strong>claude-fable-5.1-max</strong> bajó <strong>6 puntos Elo</strong> esta semana, señalando un cambio significativo en las preferencias de los evaluadores humanos.",
-        "accent_color": "emerald"
       }
     ],
     "open_source_leader": {
