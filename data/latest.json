@@ -1,14 +1,14 @@
 {
   "metadata": {
-    "last_updated": "2026-09-17T08:03:12.279200+00:00",
-    "report_date_label": "17 de Septiembre, 2026",
+    "last_updated": "2026-09-21T08:03:23.148613+00:00",
+    "report_date_label": "21 de Septiembre, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
   "top_models": [
     {
       "rank": 1,
-      "name": "claude-fable-5",
+      "name": "claude-fable-5-high",
       "elo": 1506,
       "ci": 5,
       "license_type": "proprietary",
@@ -70,7 +70,7 @@
       "top_models": [
         {
           "rank": 1,
-          "name": "claude-fable-5",
+          "name": "claude-fable-5-high",
           "elo": 1506,
           "organization": "Anthropic"
         },
@@ -144,7 +144,7 @@
       "top_models": [
         {
           "rank": 1,
-          "name": "claude-fable-5",
+          "name": "claude-fable-5-high",
           "elo": 1310,
           "organization": "Anthropic"
         },
@@ -220,7 +220,7 @@
     ],
     "datasets": [
       {
-        "name": "claude-fable-5",
+        "name": "claude-fable-5-high",
         "scores": [
           1506,
           1628,
@@ -276,12 +276,12 @@
     ],
     "series": [
       {
-        "name": "claude-fable-5",
+        "name": "claude-fable-5-high",
         "color": "#6366f1",
         "data": [
-          1507,
-          1507,
-          1507,
+          1506,
+          1506,
+          1506,
           1506,
           1506
         ]
@@ -313,7 +313,7 @@
   "insights": {
     "seismic_movements": [
       {
-        "title": "Batalla Cerrada: claude-fable-5 vs claude-opus-4-6-high",
+        "title": "Batalla Cerrada: claude-fable-5-high vs claude-opus-4-6-high",
         "content": "Con solo <strong>1 puntos</strong> de diferencia y un intervalo de confianza de ±5, los dos modelos líderes son <strong>estadísticamente indistinguibles</strong>. La preferencia humana fluctúa marginalmente entre ellos según la categoría de tarea evaluada.",
         "accent_color": "indigo"
       }
