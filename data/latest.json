@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-09-21T08:03:23.148613+00:00",
-    "report_date_label": "21 de Septiembre, 2026",
+    "last_updated": "2026-09-24T08:03:05.430501+00:00",
+    "report_date_label": "24 de Septiembre, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -103,37 +103,37 @@
     "code": {
       "label": "Código",
       "icon": "code-2",
-      "total_models": 128,
+      "total_models": 132,
       "top_models": [
         {
           "rank": 1,
-          "name": "gpt-6-astra-max",
-          "elo": 1800,
-          "organization": "OpenAI"
-        },
-        {
-          "rank": 2,
-          "name": "claude-fable-5.1-max",
-          "elo": 1758,
+          "name": "claude-opus-5.5-max",
+          "elo": 1818,
           "organization": "Anthropic"
         },
         {
+          "rank": 2,
+          "name": "gpt-6-astra-max",
+          "elo": 1792,
+          "organization": "OpenAI"
+        },
+        {
           "rank": 3,
-          "name": "claude-opus-5-max",
-          "elo": 1687,
+          "name": "claude-fable-5.1-max",
+          "elo": 1755,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
-          "name": "qwen3.8-max-0902",
-          "elo": 1681,
-          "organization": "Alibaba"
+          "name": "claude-opus-5-max",
+          "elo": 1692,
+          "organization": "Anthropic"
         },
         {
           "rank": 5,
-          "name": "kimi-k3-max",
-          "elo": 1674,
-          "organization": "Moonshot"
+          "name": "gpt-6-sol-max",
+          "elo": 1686,
+          "organization": "OpenAI"
         }
       ]
     },
@@ -177,18 +177,18 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 78,
+      "total_models": 79,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2.5-sunburst",
-          "elo": 1421,
+          "elo": 1423,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "gpt-image-2.5-flare",
-          "elo": 1399,
+          "elo": 1401,
           "organization": "OpenAI"
         },
         {
@@ -200,13 +200,13 @@
         {
           "rank": 4,
           "name": "mai-image-2.6",
-          "elo": 1331,
+          "elo": 1334,
           "organization": "Microsoft AI"
         },
         {
           "rank": 5,
           "name": "grok-imagine-image-2.0 (low)",
-          "elo": 1315,
+          "elo": 1302,
           "organization": "SpaceXAI"
         }
       ]
@@ -223,7 +223,7 @@
         "name": "claude-fable-5-high",
         "scores": [
           1506,
-          1628,
+          1627,
           1310
         ],
         "color": "#6366f1"
@@ -241,7 +241,7 @@
         "name": "claude-opus-4-7-high",
         "scores": [
           1502,
-          1555,
+          1556,
           1301
         ],
         "color": "#10b981"
@@ -259,7 +259,7 @@
         "name": "claude-fable-5.1-max",
         "scores": [
           1498,
-          1758,
+          1755,
           1289
         ],
         "color": "#8b5cf6"
