@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-10-05T08:11:01.835508+00:00",
-    "report_date_label": "5 de Octubre, 2026",
+    "last_updated": "2026-10-08T08:05:02.673116+00:00",
+    "report_date_label": "8 de Octubre, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -36,8 +36,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     },
     {
       "rank": 4,
@@ -58,8 +58,8 @@
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "down",
-      "trend_delta": -1
+      "trend": "neutral",
+      "trend_delta": 0
     }
   ],
   "category_leaders": {
@@ -96,43 +96,6 @@
           "rank": 5,
           "name": "claude-opus-4-7-high",
           "elo": 1501,
-          "organization": "Anthropic"
-        }
-      ]
-    },
-    "code": {
-      "label": "Código",
-      "icon": "code-2",
-      "total_models": 138,
-      "top_models": [
-        {
-          "rank": 1,
-          "name": "claude-opus-5.5-max",
-          "elo": 1815,
-          "organization": "Anthropic"
-        },
-        {
-          "rank": 2,
-          "name": "gpt-6-astra-max",
-          "elo": 1788,
-          "organization": "OpenAI"
-        },
-        {
-          "rank": 3,
-          "name": "claude-sonnet-5.5-xhigh",
-          "elo": 1786,
-          "organization": "Anthropic"
-        },
-        {
-          "rank": 4,
-          "name": "gpt-6.1-sol-max",
-          "elo": 1758,
-          "organization": "OpenAI"
-        },
-        {
-          "rank": 5,
-          "name": "claude-fable-5.1-max",
-          "elo": 1749,
           "organization": "Anthropic"
         }
       ]
@@ -177,18 +140,18 @@
     "image": {
       "label": "Imagen",
       "icon": "image",
-      "total_models": 81,
+      "total_models": 82,
       "top_models": [
         {
           "rank": 1,
           "name": "gpt-image-2.5-sunburst",
-          "elo": 1424,
+          "elo": 1425,
           "organization": "OpenAI"
         },
         {
           "rank": 2,
           "name": "gpt-image-2.5-flare",
-          "elo": 1401,
+          "elo": 1398,
           "organization": "OpenAI"
         },
         {
@@ -199,15 +162,15 @@
         },
         {
           "rank": 4,
-          "name": "mai-image-2.6",
-          "elo": 1335,
-          "organization": "Microsoft AI"
+          "name": "grok-imagine-image-2.0 (canvas)",
+          "elo": 1334,
+          "organization": "SpaceXAI"
         },
         {
           "rank": 5,
-          "name": "grok-imagine-image-2.0 (canvas)",
-          "elo": 1335,
-          "organization": "SpaceXAI"
+          "name": "mai-image-2.6",
+          "elo": 1332,
+          "organization": "Microsoft AI"
         }
       ]
     }
@@ -220,19 +183,10 @@
     ],
     "datasets": [
       {
-        "name": "gemini-4-argon-high",
-        "scores": [
-          1525,
-          1680,
-          null
-        ],
-        "color": "#6366f1"
-      },
-      {
         "name": "claude-opus-4-6-high",
         "scores": [
           1505,
-          1546,
+          null,
           1299
         ],
         "color": "#f43f5e"
@@ -241,7 +195,7 @@
         "name": "claude-fable-5-high",
         "scores": [
           1504,
-          1625,
+          null,
           1309
         ],
         "color": "#10b981"
@@ -250,7 +204,7 @@
         "name": "claude-opus-4-7-high",
         "scores": [
           1501,
-          1557,
+          null,
           1298
         ],
         "color": "#8b5cf6"
@@ -293,9 +247,9 @@
         "color": "#10b981",
         "data": [
           1506,
-          1506,
           1504,
           1505,
+          1504,
           1504
         ]
       }
