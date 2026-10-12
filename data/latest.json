@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-10-08T08:05:02.673116+00:00",
-    "report_date_label": "8 de Octubre, 2026",
+    "last_updated": "2026-10-12T08:17:10.420159+00:00",
+    "report_date_label": "12 de Octubre, 2026",
     "source": "Arena (Chatbot Arena)",
     "source_url": "https://arena.ai/?leaderboard"
   },
@@ -19,31 +19,31 @@
     },
     {
       "rank": 2,
+      "name": "claude-opus-5.5-high",
+      "elo": 1507,
+      "ci": 8,
+      "license_type": "proprietary",
+      "license_label": "Propiedad (Cerrado)",
+      "organization": "Anthropic",
+      "trend": "up",
+      "trend_delta": 3
+    },
+    {
+      "rank": 3,
       "name": "claude-opus-4-6-high",
-      "elo": 1505,
+      "elo": 1504,
       "ci": 3,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
-    },
-    {
-      "rank": 3,
-      "name": "claude-fable-5-high",
-      "elo": 1504,
-      "ci": 4,
-      "license_type": "proprietary",
-      "license_label": "Propiedad (Cerrado)",
-      "organization": "Anthropic",
-      "trend": "neutral",
-      "trend_delta": 0
+      "trend": "down",
+      "trend_delta": -1
     },
     {
       "rank": 4,
-      "name": "claude-opus-5.5-high",
+      "name": "claude-fable-5-high",
       "elo": 1504,
-      "ci": 9,
+      "ci": 4,
       "license_type": "proprietary",
       "license_label": "Propiedad (Cerrado)",
       "organization": "Anthropic",
@@ -66,7 +66,7 @@
     "text": {
       "label": "Texto (Overall)",
       "icon": "message-square",
-      "total_models": 413,
+      "total_models": 414,
       "top_models": [
         {
           "rank": 1,
@@ -76,19 +76,19 @@
         },
         {
           "rank": 2,
-          "name": "claude-opus-4-6-high",
-          "elo": 1505,
+          "name": "claude-opus-5.5-high",
+          "elo": 1507,
           "organization": "Anthropic"
         },
         {
           "rank": 3,
-          "name": "claude-fable-5-high",
+          "name": "claude-opus-4-6-high",
           "elo": 1504,
           "organization": "Anthropic"
         },
         {
           "rank": 4,
-          "name": "claude-opus-5.5-high",
+          "name": "claude-fable-5-high",
           "elo": 1504,
           "organization": "Anthropic"
         },
@@ -103,12 +103,12 @@
     "vision": {
       "label": "Visión",
       "icon": "eye",
-      "total_models": 159,
+      "total_models": 165,
       "top_models": [
         {
           "rank": 1,
           "name": "claude-fable-5-high",
-          "elo": 1309,
+          "elo": 1308,
           "organization": "Anthropic"
         },
         {
@@ -183,22 +183,31 @@
     ],
     "datasets": [
       {
+        "name": "claude-opus-5.5-high",
+        "scores": [
+          1507,
+          null,
+          1293
+        ],
+        "color": "#f43f5e"
+      },
+      {
         "name": "claude-opus-4-6-high",
         "scores": [
-          1505,
+          1504,
           null,
           1299
         ],
-        "color": "#f43f5e"
+        "color": "#10b981"
       },
       {
         "name": "claude-fable-5-high",
         "scores": [
           1504,
           null,
-          1309
+          1308
         ],
-        "color": "#10b981"
+        "color": "#f59e0b"
       },
       {
         "name": "claude-opus-4-7-high",
@@ -232,24 +241,24 @@
         ]
       },
       {
-        "name": "claude-opus-4-6-high",
+        "name": "claude-opus-5.5-high",
         "color": "#0ea5e9",
         "data": [
-          1505,
-          1505,
-          1505,
-          1505,
-          1505
+          1509,
+          1504,
+          1504,
+          1504,
+          1507
         ]
       },
       {
-        "name": "claude-fable-5-high",
+        "name": "claude-opus-4-6-high",
         "color": "#10b981",
         "data": [
-          1506,
-          1504,
           1505,
-          1504,
+          1505,
+          1505,
+          1505,
           1504
         ]
       }
@@ -259,7 +268,7 @@
     "seismic_movements": [
       {
         "title": "Liderazgo Claro: gemini-4-argon-high",
-        "content": "<strong>gemini-4-argon-high</strong> de Google domina el ranking con <strong>1525 Elo</strong>, manteniendo una ventaja significativa de 20 puntos sobre el segundo lugar.",
+        "content": "<strong>gemini-4-argon-high</strong> de Google domina el ranking con <strong>1525 Elo</strong>, manteniendo una ventaja significativa de 18 puntos sobre el segundo lugar.",
         "accent_color": "indigo"
       }
     ],
